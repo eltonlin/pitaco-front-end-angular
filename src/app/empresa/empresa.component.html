@@ -1,3 +1,20 @@
-<p>
-  empresa works!
-</p>
+<form clrForm clrLayout="horizontal">
+  <clr-input-container>
+      <label>Nome da Empresa</label>
+      <input clrInput type="text" [(ngModel)]="nomeEmpresa" name="nomeEmpresa" required />
+      <clr-control-error>O nome deve ser inserido!</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label>CNPJ da Empresa</label>
+    <input clrInput type="text" [(ngModel)]="cnpjEmpresa" name="cnpjEmpresa" required />
+    <clr-control-error>O CNPJ deve ser inserido!</clr-control-error>
+</clr-input-container>
+<!-- 
+<clr-input-container>
+  <label>Assunto da pesquisa</label>
+  <input clrInput type="text" [(ngModel)]="assuntoPesquisa" name="assuntoPesquisa" required />
+  <clr-control-error>O assunto da pesquisa deve ser inserido!</clr-control-error>
+</clr-input-container>
+<clr-input-container> 
+-->
+  

@@ -1,7 +1,7 @@
 <div class="main-container">
     <header class="header-6">
         <div class="branding">
-            <a href="..." class="nav-link">
+            <a routerLink="home" class="nav-link">
                 <clr-icon shape="home"></clr-icon>
                 <span class="title">Pitaco</span>
             </a>
@@ -13,8 +13,8 @@
                     <clr-icon shape="caret down"></clr-icon>
                 </button>
                 <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                    <a href="..." clrDropdownItem>Preferences</a>
-                    <a href="..." clrDropdownItem>Log out</a>
+                    <a href="..." clrDropdownItem>Configurações</a>
+                    <a href="..." clrDropdownItem>Sair</a>
                 </clr-dropdown-menu>
             </clr-dropdown>
         </div>
@@ -35,7 +35,7 @@
                     <input id="tabquestionario" type="checkbox">
                     <label for="tabquestionario">Questionario</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
+                        <li><a  [routerLink]="[{ outlets: { main: ['questionario'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
                         <li><a class="nav-link">Listar Questionarios por Empresa</a></li>
                     </ul>
                     <input id="tabinteresses" type="checkbox">
