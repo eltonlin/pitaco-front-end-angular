@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import { UsuarioMaster } from './usuarioMaster';
+import { LoginService } from './login.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  usuarioMaster: UsuarioMaster = new UsuarioMaster();
+
+  error: String;
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+  }
+
+  logar(){
+    this.loginService.logar(this.usuarioMaster).subscribe(
+      user => {
+        console.log(user);
+        this.usuarioMaster = user;
+        console.log(this.usuarioMaster);
+        window.localStorage.setItem('user', this.usuarioMaster.nome);
+        this.router.navigateByUrl("home'");
+      },
+      error => {        
+        this.error = error.error.message;
+      } 
+    )
+  }
+
+}

@@ -1,0 +1,21 @@
+<div class="login-wrapper">
+  <form class="login">
+    <section class="title">
+      <h3 class="welcome">Bem vindo a</h3>
+      Pitaco
+      <h5 class="hint">Entre com seu login e senha para acesso ao sistema</h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <input type="text" name="login" clrInput placeholder="Username" [(ngModel)]="usuarioMaster.login_master" />
+      </clr-input-container>
+      <clr-password-container>
+        <input type="password" name="password" clrPassword placeholder="Password" [(ngModel)]="usuarioMaster.senha" />
+      </clr-password-container>
+      <div *ngIf="error" class="error active">
+        {{ error }}       
+      </div>
+      <button type="submit" (click)="logar()" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>
