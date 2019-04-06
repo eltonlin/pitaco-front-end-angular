@@ -21,36 +21,31 @@
     </header>    
     <div class="content-container">
         <div class="content-area">
-            <router-outlet></router-outlet>
+            <router-outlet name="main"></router-outlet>
         </div>
         <nav class="sidenav">
-            <section class="sidenav-content">
-                <a routerLink="/empresa" class="nav-link active">
-                    Nav Element 1
-                </a>
-                <a href="..." class="nav-link">
-                    Nav Element 2
-                </a>
+            <section class="sidenav-content">               
                 <section class="nav-group collapsible">
-                    <input id="tabexample1" type="checkbox">
-                    <label for="tabexample1">Collapsible Nav Element</label>
+                    <input id="tabempresa" type="checkbox">
+                    <label for="tabempresa">Empresa</label>
                     <ul class="nav-list">
-                        <li><a class="nav-link">Link 1</a></li>
-                        <li><a class="nav-link">Link 2</a></li>
+                        <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Empresa</a></li>
+                        <li><a class="nav-link">Listar Empresa</a></li>
                     </ul>
-                </section>
-                <section class="nav-group">
-                    <input id="tabexample2" type="checkbox">
-                    <label for="tabexample2">Default Nav Element</label>
+                    <input id="tabquestionario" type="checkbox">
+                    <label for="tabquestionario">Questionario</label>
                     <ul class="nav-list">
-                        <li><a class="nav-link">Link 1</a></li>
-                        <li><a class="nav-link">Link 2</a></li>
-                        <li><a class="nav-link active">Link 3</a></li>
-                        <li><a class="nav-link">Link 4</a></li>
-                        <li><a class="nav-link">Link 5</a></li>
-                        <li><a class="nav-link">Link 6</a></li>
+                        <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
+                        <li><a class="nav-link">Listar Questionarios por Empresa</a></li>
                     </ul>
-                </section>
+                    <input id="tabinteresses" type="checkbox">
+                    <label for="tabinteresses">Interesses</label>
+                    <ul class="nav-list">
+                        <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Interesses</a></li>
+                        <li><a class="nav-link">Listar Interesses</a></li>
+                    </ul>
+                    
+                </section>                
             </section>
         </nav>
     </div>

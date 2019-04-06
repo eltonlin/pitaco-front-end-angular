@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent,
     children: [{
-      path: 'empresa', loadChildren: 'app/empresa/empresa.module#EmpresaModule',
+      path: 'empresa', component: EmpresaComponent, outlet: 'main',
     }] 
   }
 ]
