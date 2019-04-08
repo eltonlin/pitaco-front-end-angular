@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioMaster } from './usuarioMaster';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title
+  ) { 
+    this.titleService.setTitle("Pitaco Login");
+  }
 
   ngOnInit() {
   }

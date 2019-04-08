@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-interesses',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InteressesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService:Title) {
+    this.titleService.setTitle("Pitaco Interesses");
 
+   }
+  
   ngOnInit() {
   }
 

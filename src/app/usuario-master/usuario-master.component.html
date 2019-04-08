@@ -1,0 +1,20 @@
+<h1><strong>Cadastrar Usuários</strong></h1>
+<form clrForm clrLayout="vertical">
+  <clr-input-container>
+    <label>Login Usuário</label>
+    <input clrInput type="text" [(ngModel)]="usuarioMaster" name="usuarioMaster" required />
+    <clr-control-error>O Usuário Master deve ser inserido!</clr-control-error>
+  </clr-input-container>
+  <clr-password-container>
+    <label>Senha do Usuário</label>
+    <input clrPassword type="password" [(ngModel)]="usuarioMasterSenha" name="usuarioMasterSenha" required />
+    <clr-control-error>A senha Usuário Master deve ser inserida!</clr-control-error>
+  </clr-password-container>
+  <clr-input-container>
+    <label>Nome do Usuário</label>
+    <input clrInput type="text" [(ngModel)]="usuarioMasterNome" name="usuarioMasterNome" required />
+    <clr-control-error>O Nome Usuário Master deve ser inserido!</clr-control-error>
+  </clr-input-container>
+  <br />
+  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
+</form>

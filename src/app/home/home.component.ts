@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioMaster } from './../login/usuarioMaster';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ export class HomeComponent implements OnInit {
 
   usuarioNome: string;
 
-  constructor() { }
+  constructor(private titleService:Title) {
+    this.titleService.setTitle("Pitaco Inicial");
+   }
 
   ngOnInit() {
     this.usuarioNome = window.localStorage.getItem('user');

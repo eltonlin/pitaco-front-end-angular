@@ -1,23 +1,42 @@
-<form clrForm clrLayout="horizontal">
-    <clr-input-container>
-        <label>Descrição do Questionario</label>
-        <input clrInput type="text" [(ngModel)]="Questionario" name="Questionario" required />
-        <clr-control-error>A descrição deve ser inserida!</clr-control-error>
-    </clr-input-container>
-    <clr-input-container>
-      <label>Pontuação do Questionario</label>
-      <input clrInput type="text" [(ngModel)]="pontuacaoQuestionario" name="pontuacaoQuestionario" required />
-      <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
-    </clr-input-container><br />
-    <div class="clr-select-wrapper">
-        <select id="select-basic" class="clr-select">
-          <option value="1">Empresa 1</option>
-          <option value="2">Empresa 2</option>
-          <option value="3">Empresa 3</option>
-        </select>
-      </div><br /><br />
-    <clr-input-container>
-      <label>Número de Idendificação da Empresa</label>
-      <input clrInput type="text" [(ngModel)]="identificacaoEmpresa" name="identificacaoEmpresa" required />
-      <clr-control-error>O código da empresa deve ser inserido!</clr-control-error>
-  </clr-input-container>
+<h1><strong>Cadastrar Questionário</strong></h1>
+
+<form clrForm clrLayout="vertical">
+  <clr-textarea-container>
+    <label>Descrição do Questionário</label>
+    <textarea clrTextarea rows="4" placeholder="descrição"></textarea>
+  </clr-textarea-container>
+  <clr-input-container>
+    <label>Pontuação do Questionario</label>
+    <input clrInput type="text" [(ngModel)]="pontuacaoQuestionario" name="pontuacaoQuestionario" required />
+    <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
+  </clr-input-container><br />
+  <clr-select-container>
+    <label>Empresa</label>
+    <select clrSelect name="optionsEmpresa" [(ngModel)]="optionsEmpresa">
+      <option value="one">Empresa 1</option>
+      <option value="two">Empresa 2</option>
+      <option value="three">Empresa 3</option>
+    </select>
+  </clr-select-container>
+  <clr-select-container>
+    <label>Interesse</label>
+    <select clrSelect name="optionsInteresse" [(ngModel)]="optionsInteresse">
+      <option value="música">Música</option>
+      <option value="Esporte">Esporte</option>
+      <option value="Carros">Carros</option>
+      <option value="Filmes">Filmes</option>
+      <option value="Comida">Comida</option>
+      <option value="Bebida">Bebida</option>
+      <option value="Politica">Política</option>
+      <option value="Eletroeletronicos">Eletroeletronicos</option>
+      <option value="Viagens">Viagens</option>
+      <option value="Educacao">Educaçao</option>
+      <option value="Fofoca">Fofoca</option>
+      <option value="Intenet">Intenet</option>
+      <option value="Economia">Economia</option>
+      <option value="Livros">Livros</option>
+    </select>
+  </clr-select-container>
+  <br />
+  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
+</form>

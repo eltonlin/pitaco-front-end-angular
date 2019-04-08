@@ -1,3 +1,10 @@
-<p>
-  interesses works!
-</p>
+<h1><strong>Cadastrar Interesses</strong></h1>
+<form clrForm clrLayout="vertical">
+  <clr-input-container><br />
+    <label>Interesse</label>
+    <input clrInput type="text" [(ngModel)]="descInteresse" name="descInteresse" required />
+    <clr-control-error>O Interesse deve ser inserido!</clr-control-error>
+  </clr-input-container><br />
+  <br />
+  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
+</form>

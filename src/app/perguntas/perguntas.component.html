@@ -1,0 +1,40 @@
+<h1><strong>Cadastrar Perguntas</strong></h1>
+<form clrForm clrLayout="vertical">
+    <clr-textarea-container>
+      <label>Pergunta</label>
+      <textarea clrTextarea rows="4" placeholder="Pergunta"></textarea>
+    </clr-textarea-container>
+    <clr-radio-container>
+        <label>Tipo Pergunta</label>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio name="optionsPergunta" required value="simOuNao" [(ngModel)]="options" />
+          <label>Sim ou Não</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio name="optionsDescritiva" required value="Descritiva" [(ngModel)]="options" />
+          <label>Descritiva</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio name="optionsVerdadeiroOuFalso" required value="verdadeiroOuFalso" [(ngModel)]="options" />
+          <label>Verdadeiro Ou Falso</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio name="optionsABCDE" required value="ABCDE" [(ngModel)]="options" />
+          <label>ABCDE</label>
+        </clr-radio-wrapper>
+        <clr-control-error>Você precisa escolher uma das opções!</clr-control-error>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio name="optionsNota" required value="nota" [(ngModel)]="options" />
+          <label>Nota de 1 a 10</label>
+        </clr-radio-wrapper>
+        <clr-control-error>Você precisa escolher uma das opções!</clr-control-error>
+      </clr-radio-container>
+      <clr-select-container>
+          <label>A qual questionário essa pergunta pertence?</label>
+          <select clrSelect name="optionsQuestionario" [(ngModel)]="optionsQuestionario">
+            <option value="one">Questionário 1</option>
+            <option value="two">Questionário 2</option>
+            <option value="three">Questionário 3</option>
+          </select>
+        </clr-select-container>
+</form>      

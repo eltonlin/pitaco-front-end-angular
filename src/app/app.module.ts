@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { QuestionarioComponent } from './questionario/questionario.component';
 import { InteressesComponent } from './interesses/interesses.component';
+import { UsuarioMasterComponent } from './usuario-master/usuario-master.component';
+import { PerguntasComponent } from './perguntas/perguntas.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { InteressesComponent } from './interesses/interesses.component';
     HomeComponent,
     EmpresaComponent,
     QuestionarioComponent,
-    InteressesComponent
+    InteressesComponent,
+    UsuarioMasterComponent,
+    PerguntasComponent
   ],
   imports: [
     BrowserModule,

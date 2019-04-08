@@ -1,4 +1,5 @@
-<form clrForm clrLayout="horizontal">
+<h1><strong>Cadastrar Empresa</strong></h1>
+<form clrForm clrLayout="vertical">
   <clr-input-container>
       <label>Nome da Empresa</label>
       <input clrInput type="text" [(ngModel)]="nomeEmpresa" name="nomeEmpresa" required />
@@ -9,6 +10,9 @@
     <input clrInput type="text" [(ngModel)]="cnpjEmpresa" name="cnpjEmpresa" required />
     <clr-control-error>O CNPJ deve ser inserido!</clr-control-error>
 </clr-input-container>
+<br />
+<button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
+
 <!-- 
 <clr-input-container>
   <label>Assunto da pesquisa</label>
