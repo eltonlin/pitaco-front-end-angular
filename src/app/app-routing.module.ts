@@ -12,7 +12,7 @@ import { PerguntasComponent } from './perguntas/perguntas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  { path: 'home', component: HomeComponent, 
+  { path: 'home', component: HomeComponent,
     children: [
       { path: 'empresa', component: EmpresaComponent, outlet: 'main'},
       { path: 'questionario', component: QuestionarioComponent, outlet: 'main'},
@@ -22,7 +22,7 @@ const routes: Routes = [
     ]
   },
   {path: '', redirectTo: '/login', pathMatch: 'full'}
-  ]
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
