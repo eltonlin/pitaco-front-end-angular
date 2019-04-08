@@ -29,13 +29,11 @@ export class LoginComponent implements OnInit {
   logar(){
     this.loginService.logar(this.usuarioMaster).subscribe(
       user => {
-        console.log(user);
         this.usuarioMaster = user;
-        console.log(this.usuarioMaster);
         window.localStorage.setItem('user', this.usuarioMaster.nome);
-        this.router.navigateByUrl("home'");
+        this.router.navigate(['home']);
       },
-      error => {        
+      error => {
         this.error = error.error.message;
       } 
     )

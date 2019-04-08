@@ -11,7 +11,7 @@ import { PerguntasComponent } from './perguntas/perguntas.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent, 
     children: [
       { path: 'empresa', component: EmpresaComponent, outlet: 'main'},
@@ -19,13 +19,9 @@ const routes: Routes = [
       { path: 'interesses', component: InteressesComponent, outlet: 'main'},
       { path: 'usuario-master', component: UsuarioMasterComponent, outlet: 'main'},
       { path: 'perguntas', component: PerguntasComponent, outlet: 'main'}
-      
-
-      
-      
-      
     ]
-  }
+  },
+  {path: '', redirectTo: '/login', pathMatch: 'full'}
   ]
 
 @NgModule({
