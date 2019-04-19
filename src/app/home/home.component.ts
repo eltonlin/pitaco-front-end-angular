@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioMaster } from './../login/usuarioMaster';
 import { Title } from '@angular/platform-browser';
 
 @Component({

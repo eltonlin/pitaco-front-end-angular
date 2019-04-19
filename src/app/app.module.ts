@@ -15,6 +15,13 @@ import { QuestionarioComponent } from './questionario/questionario.component';
 import { InteressesComponent } from './interesses/interesses.component';
 import { UsuarioMasterComponent } from './usuario-master/usuario-master.component';
 import { PerguntasComponent } from './perguntas/perguntas.component';
+import { ApresentacaoComponent } from './apresentacao/apresentacao.component';
+import { HeaderAjudaComponent } from './header-ajuda/header-ajuda.component';
+import { ListarEmpresasComponent } from './empresa/listar-empresas/listar-empresas.component';
+import { ListarInteressesComponent } from './interesses/listar-interesses/listar-interesses.component';
+import { ListarPerguntasComponent } from './perguntas/listar-perguntas/listar-perguntas.component';
+import { ListarQuestionariosComponent } from './questionario/listar-questionarios/listar-questionarios.component';
+import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,15 @@ import { PerguntasComponent } from './perguntas/perguntas.component';
     QuestionarioComponent,
     InteressesComponent,
     UsuarioMasterComponent,
-    PerguntasComponent
+    PerguntasComponent,
+    ApresentacaoComponent,
+    ListarEmpresasComponent,
+    HeaderAjudaComponent,
+    ListarEmpresasComponent,
+    ListarInteressesComponent,
+    ListarPerguntasComponent,
+    ListarQuestionariosComponent,
+    ListarUsuariosMasterComponent
   ],
   imports: [
     BrowserModule,

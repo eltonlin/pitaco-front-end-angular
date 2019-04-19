@@ -1,21 +1,22 @@
 <div class="main-container">
     <header class="header-4">
         <div class="branding">
-            <a routerLink="/home" class="nav-link">
+            <a [routerLink]="[{ outlets: { main: ['apresentacao'] } }]" class="nav-link">
+            <!-- <a routerLink="/apresentacao" class="nav-link"> -->
                 <clr-icon shape="home" class="home-icon"></clr-icon>
                 <span class="title">Pitaco</span>
             </a>
         </div>
         <div class="header-nav">
-                <a href="..." class="nav-link nav-text">Home</a>
+                <a [routerLink]="[{ outlets: { main: ['apresentacao'] } }]" class="nav-link nav-text">Home</a>
                 <a href="..." class="nav-link nav-text">Como Funciona?</a>
                 <a href="..." class="nav-link nav-text">Quem somos?</a>
                 <a href="..." class="nav-link nav-text">Contato</a>
-                <a href="..." class="nav-link nav-text">Ajuda</a>
+                <a [routerLink]="[{ outlets: { main: ['header-ajuda'] } }]" class="nav-link nav-text">Ajuda</a>
             </div>
             <form class="search">
                     <label for="search_input">
-                        <input id="search_input" type="text" placeholder="Pesquisar">
+                        <input id="search_input" type="text" placeholder="  Pesquisar">
                     </label>
             </form>    
         <div class="header-actions">
@@ -23,7 +24,7 @@
                 <button class="nav-text" clrDropdownTrigger>
                     {{ usuarioNome }}
                     <clr-icon shape="user" size="30"></clr-icon>
-                    <clr-icon shape="caret down" size=""></clr-icon>
+                    <clr-icon shape="caret down" size="15"></clr-icon>
                 </button>
                 <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
                     <a href="..." clrDropdownItem>Perfil</a>
@@ -36,11 +37,8 @@
     </header>
     <div class="content-container">
         <div class="content-area">
-            <div class="Bem Vindo">
-                <p>Seja bem vindo a plataforma de pesquisas online <strong>PITACO</strong>.
-                  <br/> Navegue pelo menu lateral de acordo com as ações que deseja realizar. 
-                </p>    
-            </div>
+           
+           
             <router-outlet name="main"></router-outlet>
         </div>
         <nav class="sidenav">
@@ -49,32 +47,40 @@
                     <input id="tabusuario" type="checkbox">
                     <label for="tabusuario">Usuário Administrativo</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['usuario-master'] } }]" class="nav-link">Cadastrar Usuário Adm</a></li>
-                        <li><a class="nav-link">Listar Usuários</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['usuario-master'] } }]" class="nav-link">Cadastrar Usuário Adm</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['listar-usuarios-master'] } }]"class="nav-link">Listar Usuários</a></li>
                     </ul>
+                </section>
+                <section class="nav-group collapsible">
                     <input id="tabempresa" type="checkbox">
                     <label for="tabempresa">Empresa</label>
                     <ul class="nav-list">
                         <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Empresa</a></li>
-                        <li><a class="nav-link">Listar Empresa</a></li>
+                        <li><a  [routerLink]="[{ outlets: { main: ['listar-empresas'] } }]" class="nav-link">Listar Empresas</a></li>
                     </ul>
+                </section>
+                <section class="nav-group collapsible">
                     <input id="tabquestionario" type="checkbox">
                     <label for="tabquestionario">Questionário</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['questionario'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
-                        <li><a class="nav-link">Listar Questionários por Empresa</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['questionario'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['listar-questionarios'] } }]" class="nav-link">Listar Questionários por Empresa</a></li>
                     </ul>
+                </section>
+                <section class="nav-group collapsible">
                     <input id="tabinteresses" type="checkbox">
                     <label for="tabinteresses">Interesses</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['interesses'] } }]" class="nav-link">Cadastrar Interesses</a></li>
-                        <li><a class="nav-link">Listar Interesses</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['interesses'] } }]" class="nav-link">Cadastrar Interesses</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['listar-interesses'] } }]" class="nav-link">Listar Interesses</a></li>
                     </ul>
+                </section>
+                <section class="nav-group collapsible">
                     <input id="tabperguntas" type="checkbox">
                     <label for="tabperguntas">Perguntas</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['perguntas'] } }]" class="nav-link">Cadastrar Perguntas</a></li>
-                        <li><a class="nav-link">Listar Perguntas</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['perguntas'] } }]" class="nav-link">Cadastrar Perguntas</a></li>
+                        <li><a [routerLink]="[{ outlets: { main: ['listar-perguntas'] } }]" class="nav-link">Listar Perguntas</a></li>
                     </ul>
                     
                 </section>                
