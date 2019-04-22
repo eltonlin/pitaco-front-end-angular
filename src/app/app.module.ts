@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +21,7 @@ import { ListarInteressesComponent } from './interesses/listar-interesses/listar
 import { ListarPerguntasComponent } from './perguntas/listar-perguntas/listar-perguntas.component';
 import { ListarQuestionariosComponent } from './questionario/listar-questionarios/listar-questionarios.component';
 import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-master/listar-usuarios-master.component';
+//import { InteressesService } from './interesses/interesses.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +50,7 @@ import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-
     FormsModule,
     HttpClientModule
   ],
+  //providers: [LoginService, InteressesService],
   providers: [LoginService],
   bootstrap: [AppComponent]
 })
