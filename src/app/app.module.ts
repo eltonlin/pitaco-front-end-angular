@@ -21,6 +21,7 @@ import { ListarInteressesComponent } from './interesses/listar-interesses/listar
 import { ListarPerguntasComponent } from './perguntas/listar-perguntas/listar-perguntas.component';
 import { ListarQuestionariosComponent } from './questionario/listar-questionarios/listar-questionarios.component';
 import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-master/listar-usuarios-master.component';
+import { EmpresaService } from './empresa/empresa.service';
 //import { InteressesService } from './interesses/interesses.service';
 
 @NgModule({
@@ -51,7 +52,7 @@ import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-
     HttpClientModule
   ],
   //providers: [LoginService, InteressesService],
-  providers: [LoginService],
+  providers: [LoginService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

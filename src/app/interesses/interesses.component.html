@@ -2,9 +2,30 @@
 <form clrForm clrLayout="vertical">
   <clr-input-container><br />
     <label>Interesse</label>
-    <input clrInput type="text" [(ngModel)]="descInteresse" name="descInteresse" required />
+    <input clrInput type="text" [(ngModel)]="interesse.descricao" name="descInteresse" required />
     <clr-control-error>O Interesse deve ser inserido!</clr-control-error>
+
   </clr-input-container><br />
   <br />
-  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="insertInteresse()">cadastrar</button>
+  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="insertInteresse()">Cadastrar</button>
+  <div *ngIf="sucesso" class="alert alert-success" role="alert">
+    <div class="alert-items">
+        <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+            </div>
+            <span class="alert-text">Interesse cadastrado com sucesso</span>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="erro" class="alert alert-danger" role="alert">
+    <div class="alert-items">
+        <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+            </div>
+            <span class="alert-text">Erro ao cadastrar Interesse</span>
+        </div>
+    </div>
+  </div>
 </form>

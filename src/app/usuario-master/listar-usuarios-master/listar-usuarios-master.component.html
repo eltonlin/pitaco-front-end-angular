@@ -1,12 +1,18 @@
 <clr-datagrid>
-  <clr-dg-column>Usuários Master</clr-dg-column>
+  <clr-dg-column>Usuários Finais</clr-dg-column>
   <clr-dg-column>Nome</clr-dg-column>
-  <clr-dg-column>Senha</clr-dg-column>
-  
+  <clr-dg-column>Cpf</clr-dg-column>
+  <clr-dg-column>Faixa Salarial</clr-dg-column>
+  <clr-dg-column>Pontuacao</clr-dg-column>
+  <clr-dg-column>Dt. Nascimento</clr-dg-column>
 
   <clr-dg-row *ngFor="let user of users">
-      <clr-dg-cell></clr-dg-cell>
-      <clr-dg-cell></clr-dg-cell>
+      <clr-dg-cell>{{ user.login_usuario }}</clr-dg-cell>
+      <clr-dg-cell>{{ user.nome }}</clr-dg-cell>
+      <clr-dg-cell>{{ user.cpf }}</clr-dg-cell>
+      <clr-dg-cell>{{ user.faixa_salarial }}</clr-dg-cell>
+      <clr-dg-cell>{{ user.pontuacao }}</clr-dg-cell>
+      <clr-dg-cell>{{ user.data_nascimento }}</clr-dg-cell>
      
   </clr-dg-row>
 

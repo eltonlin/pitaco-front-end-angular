@@ -1,4 +1,5 @@
-export class Interesses { 
-    interesse: string;
+export class Interesses {
+    id_interesse: number; 
+    descricao: string;
 
 }

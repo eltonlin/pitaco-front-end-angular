@@ -1,4 +1,4 @@
-/*import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Interesses } from './interesses';
 import { Observable } from 'rxjs';
@@ -12,7 +12,12 @@ export class InteressesService {
 
   constructor(public http: HttpClient) { }
 
- inserir(interesses: Interesses): Observable<any>{
-   return this.http.post(this.url + 'interesses', interesses )
+ inserir(interesse: any): Observable<any>{
+   return this.http.post(this.url + 'interesse_usuario/cadastrar', interesse )
  }
-}*/
+
+ listarInteresses(): Observable<any>{
+   return this.http.get(this.url + 'interesses');
+ }
+
+}

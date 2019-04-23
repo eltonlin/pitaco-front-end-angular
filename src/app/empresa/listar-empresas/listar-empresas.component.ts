@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpresaService } from '../empresa.service';
 
 @Component({
   selector: 'app-listar-empresas',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarEmpresasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private empresaService: EmpresaService) { }
+
+  empresas: any;
+
 
   ngOnInit() {
+    this.listarEmpresas();
+
+  }
+
+  listarEmpresas(){
+    this.empresaService.listarEmpresas().subscribe(empresas => {this.empresas = empresas; console.log(this.empresas)});
   }
 
 }
