@@ -12,7 +12,7 @@ export class InteressesService {
 
   constructor(public http: HttpClient) { }
 
- inserir(interesse: any): Observable<any>{
+ inserir(interesse: Interesses): Observable<any>{
    return this.http.post(this.url + 'interesse_usuario/cadastrar', interesse )
  }
 

@@ -13,7 +13,6 @@ export class InteressesComponent implements OnInit {
 
   constructor(
     private interessesService: InteressesService,
-    private router: Router,
     private titleService: Title
   ) {
     this.titleService.setTitle("Pitaco Interesses");
