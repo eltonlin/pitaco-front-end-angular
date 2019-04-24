@@ -1,32 +1,25 @@
 <clr-datagrid>
+    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>Id</clr-dg-column>
-  <clr-dg-column>Descrição</clr-dg-column>
+  <clr-dg-column>Descrição
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
   
 
   <clr-dg-row *ngFor="let interesse of interesses">
       <clr-dg-cell>{{ interesse.id_interesse }}</clr-dg-cell>
       <clr-dg-cell>{{ interesse.descricao }}</clr-dg-cell>
+      <clr-dg-action-overflow>
+          <button class="action-item" (click)="onEdit(user)">Editar</button>
+          <button class="action-item" (click)="onDelete(user)">Apagar</button>
+      </clr-dg-action-overflow>
   </clr-dg-row>
 
-  <clr-dg-footer> </clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Interesses por páginas</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{pagination.totalItems}} Interesses
+    </clr-dg-pagination>
+</clr-dg-footer>
 </clr-datagrid>
-
-
-<!-- Esse código abaixo será reaproveitado para a implementação real da lista, onde a mesma
-recebe um JSON do back-end e mostra na tabela -->
-
-<!-- <clr-datagrid>
-  <clr-dg-column>User ID</clr-dg-column>
-  <clr-dg-column>Name</clr-dg-column>
-  <clr-dg-column>Creation date</clr-dg-column>
-  <clr-dg-column>Favorite color</clr-dg-column>
-
-  <clr-dg-row *ngFor="let user of users">
-      <clr-dg-cell>{{user.id}}</clr-dg-cell>
-      <clr-dg-cell>{{user.name}}</clr-dg-cell>
-      <clr-dg-cell>{{user.creation | date}}</clr-dg-cell>
-      <clr-dg-cell>{{user.color}}</clr-dg-cell>
-  </clr-dg-row>
-
-  <clr-dg-footer>{{users.length}} users</clr-dg-footer>
-</clr-datagrid> -->

@@ -1,17 +1,37 @@
 <clr-datagrid>
+    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>ID do Questionário</clr-dg-column>
-  <clr-dg-column>Descrição do Questionário</clr-dg-column>
-  <clr-dg-column>Pontuação</clr-dg-column>
-  <clr-dg-column>Usuário Master que Cadastrou</clr-dg-column>
-  <clr-dg-column>Empresa</clr-dg-column>
-  <clr-dg-column>Interesse</clr-dg-column>
+  <clr-dg-column>Descrição do Questionário
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Pontuação
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Usuário Master que Cadastrou
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Empresa
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Interesse
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
   
 
   <clr-dg-row *ngFor="let user of users">
       <clr-dg-cell></clr-dg-cell>
       <clr-dg-cell></clr-dg-cell>
-     
+      <clr-dg-action-overflow>
+            <button class="action-item" (click)="onEdit(user)">Editar</button>
+            <button class="action-item" (click)="onDelete(user)">Apagar</button>
+        </clr-dg-action-overflow>
   </clr-dg-row>
 
-  <clr-dg-footer> </clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Questionários por páginas</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{pagination.totalItems}} Questionários
+    </clr-dg-pagination>
+</clr-dg-footer>
 </clr-datagrid>
