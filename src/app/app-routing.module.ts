@@ -20,27 +20,11 @@ import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  { path: 'home', component: HomeComponent,
-    children: [
-      { path: 'empresa', component: EmpresaComponent, outlet: 'main'},
-      { path: 'questionario', component: QuestionarioComponent, outlet: 'main'},
-      { path: 'interesses', component: InteressesComponent, outlet: 'main'},
-      { path: 'usuario-master', component: UsuarioMasterComponent, outlet: 'main'},
-      { path: 'perguntas', component: PerguntasComponent, outlet: 'main'},
-      { path: 'apresentacao', component: ApresentacaoComponent, outlet: 'main'},
-      { path: 'listar-empresas', component: ListarEmpresasComponent, outlet: 'main'},
-      { path: 'header-ajuda', component: HeaderAjudaComponent, outlet: 'main'},
-      { path: 'listar-interesses', component: ListarInteressesComponent, outlet: 'main'},
-      { path: 'listar-perguntas', component: ListarPerguntasComponent, outlet: 'main'},
-      { path: 'listar-questionarios', component: ListarQuestionariosComponent, outlet: 'main'},
-      { path: 'listar-usuarios-master', component: ListarUsuariosMasterComponent, outlet: 'main'}
-      
-    ]
-  },
-  //{path: '/home/(main:apresentacao)/(main:header-ajuda))', redirectTo: '/header-ajuda', pathMatch: 'full'}, 
+  { path: 'home', loadChildren: './home/home.module#HomeModule', data: {preload: true} },
+  // {path: '/home/(main:apresentacao)/(main:header-ajuda))', redirectTo: '/header-ajuda', pathMatch: 'full'},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
-  //Esse código abaixo vai servir para redirecionar para uma página não encontrada. O "**" indica isso.
-  //{path: '**', redirectTo: '/paginaNaoEncontrada', pathMatch: 'full'}
+  // Esse código abaixo vai servir para redirecionar para uma página não encontrada. O "**" indica isso.
+  // {path: '**', redirectTo: '/paginaNaoEncontrada', pathMatch: 'full'}
   ];
 
 @NgModule({

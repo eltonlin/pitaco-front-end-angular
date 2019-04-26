@@ -22,36 +22,21 @@ import { ListarPerguntasComponent } from './perguntas/listar-perguntas/listar-pe
 import { ListarQuestionariosComponent } from './questionario/listar-questionarios/listar-questionarios.component';
 import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 import { EmpresaService } from './empresa/empresa.service';
-//import { InteressesService } from './interesses/interesses.service';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    EmpresaComponent,
-    QuestionarioComponent,
-    InteressesComponent,
-    UsuarioMasterComponent,
-    PerguntasComponent,
-    ApresentacaoComponent,
-    ListarEmpresasComponent,
-    HeaderAjudaComponent,
-    ListarEmpresasComponent,
-    ListarInteressesComponent,
-    ListarPerguntasComponent,
-    ListarQuestionariosComponent,
-    ListarUsuariosMasterComponent
   ],
   imports: [
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  //providers: [LoginService, InteressesService],
   providers: [LoginService, EmpresaService],
   bootstrap: [AppComponent]
 })

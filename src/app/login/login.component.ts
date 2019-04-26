@@ -13,20 +13,20 @@ export class LoginComponent implements OnInit {
 
   usuarioMaster: UsuarioMaster = new UsuarioMaster();
 
-  error: String;
+  error: string;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
     private titleService: Title
-  ) { 
-    this.titleService.setTitle("Pitaco Login");
+  ) {
+    this.titleService.setTitle('Pitaco Login');
   }
 
   ngOnInit() {
   }
 
-  logar(){
+  logar() {
     this.loginService.logar(this.usuarioMaster).subscribe(
       user => {
         this.usuarioMaster = user;
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.error = error.error.message;
-      } 
-    )
+      }
+    );
   }
 
 }

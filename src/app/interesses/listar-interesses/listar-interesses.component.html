@@ -1,11 +1,16 @@
 <clr-datagrid>
   <clr-dg-column>Id</clr-dg-column>
-  <clr-dg-column>Descrição</clr-dg-column>
-  
+  <clr-dg-column [clrDgField]="'descricao'">Descrição</clr-dg-column>
+  <clr-dg-column>Editar</clr-dg-column>
+  <clr-dg-column>
+    Deletar</clr-dg-column>
 
-  <clr-dg-row *ngFor="let interesse of interesses">
+
+  <clr-dg-row *clrDgItems="let interesse of interesses">
       <clr-dg-cell>{{ interesse.id_interesse }}</clr-dg-cell>
       <clr-dg-cell>{{ interesse.descricao }}</clr-dg-cell>
+      <clr-dg-cell><button type="button" class="btn btn-icon btn-primary" (click)="editar(interesse)"><clr-icon shape="pencil"></clr-icon></button></clr-dg-cell>
+      <clr-dg-cell><button type="button" class="btn btn-icon btn-warning"><clr-icon shape="trash"></clr-icon></button></clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer> </clr-dg-footer>

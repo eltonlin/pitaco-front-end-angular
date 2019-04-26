@@ -18,8 +18,8 @@ export class ListarEmpresasComponent implements OnInit {
 
   }
 
-  listarEmpresas(){
-    this.empresaService.listarEmpresas().subscribe(empresas => {this.empresas = empresas; console.log(this.empresas)});
+  listarEmpresas() {
+    this.empresaService.listarEmpresas().subscribe(empresas => {this.empresas = empresas; console.log(this.empresas); });
   }
 
 }

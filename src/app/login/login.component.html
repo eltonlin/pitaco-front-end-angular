@@ -15,8 +15,9 @@
         <input type="password" name="password" clrPassword placeholder="Senha" [(ngModel)]="usuarioMaster.senha" />
       </clr-password-container>
       <div *ngIf="error" class="error active">
-        {{ error }}       
+        {{ error }}
       </div>
+      <a [routerLink]="['/home']" class="nav-link">Cadastrar Usuário Adm</a>
       <button type="submit" (click)="logar()" class="btn btn-primary">Login</button>
     </div>
   </form>

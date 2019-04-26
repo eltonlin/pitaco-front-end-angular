@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InteressesService } from '../interesses.service';
 import { Interesses } from '../interesses';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-interesses',
@@ -9,7 +10,10 @@ import { Interesses } from '../interesses';
 })
 export class ListarInteressesComponent implements OnInit {
 
-  constructor(private interesseService: InteressesService) { }
+  constructor(
+    private interesseService: InteressesService,
+    private router: Router
+  ) { }
 
   interesses: Interesses;
 
@@ -17,8 +21,12 @@ export class ListarInteressesComponent implements OnInit {
     this.listarInteresse();
   }
 
-  listarInteresse(){
+  listarInteresse() {
     this.interesseService.listarInteresses().subscribe(interesses => this.interesses = interesses);
+  }
+
+  editar(interesse: Interesses) {
+    this.router.navigate([{ outlets: { main: [ 'interesses' ] }}]);
   }
 
 }

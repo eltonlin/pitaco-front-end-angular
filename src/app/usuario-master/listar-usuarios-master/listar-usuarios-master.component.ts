@@ -16,7 +16,7 @@ export class ListarUsuariosMasterComponent implements OnInit {
     this.listarUsuarios();
   }
 
-  listarUsuarios(){
+  listarUsuarios() {
     this.usuarioService.listarUsuarios().subscribe(usuarios => this.users = usuarios);
   }
 

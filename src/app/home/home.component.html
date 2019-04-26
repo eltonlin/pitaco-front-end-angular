@@ -18,7 +18,7 @@
                     <label for="search_input">
                         <input id="search_input" type="text" placeholder="  Pesquisar">
                     </label>
-            </form>    
+            </form>
         <div class="header-actions">
             <clr-dropdown>
                 <button class="nav-text" clrDropdownTrigger>
@@ -37,53 +37,50 @@
     </header>
     <div class="content-container">
         <div class="content-area">
-           
-           
-            <router-outlet name="main"></router-outlet>
+            <router-outlet></router-outlet>
         </div>
         <nav class="sidenav">
-            <section class="sidenav-content">               
+            <section class="sidenav-content">
                 <section class="nav-group collapsible">
                     <input id="tabusuario" type="checkbox">
                     <label for="tabusuario">Usuário Administrativo</label>
                     <ul class="nav-list">
-                        <li><a [routerLink]="[{ outlets: { main: ['usuario-master'] } }]" class="nav-link">Cadastrar Usuário Adm</a></li>
-                        <li><a [routerLink]="[{ outlets: { main: ['listar-usuarios-master'] } }]"class="nav-link">Listar Usuários</a></li>
+                        <li><a [routerLink]="['usuario-master']" class="nav-link">Cadastrar Usuário Adm</a></li>
+                        <li><a [routerLink]="['listar-usuarios-master']"class="nav-link">Listar Usuários</a></li>
                     </ul>
                 </section>
                 <section class="nav-group collapsible">
                     <input id="tabempresa" type="checkbox">
                     <label for="tabempresa">Empresa</label>
                     <ul class="nav-list">
-                        <li><a  [routerLink]="[{ outlets: { main: ['empresa'] } }]" class="nav-link">Cadastrar Empresa</a></li>
-                        <li><a  [routerLink]="[{ outlets: { main: ['listar-empresas'] } }]" class="nav-link">Listar Empresas</a></li>
+                        <li><a  [routerLink]="['empresa']" class="nav-link">Cadastrar Empresa</a></li>
+                        <li><a  [routerLink]="['listar-empresas']" class="nav-link">Listar Empresas</a></li>
                     </ul>
                 </section>
                 <section class="nav-group collapsible">
                     <input id="tabquestionario" type="checkbox">
                     <label for="tabquestionario">Questionário</label>
                     <ul class="nav-list">
-                        <li><a [routerLink]="[{ outlets: { main: ['questionario'] } }]" class="nav-link">Cadastrar Questionarios</a></li>
-                        <li><a [routerLink]="[{ outlets: { main: ['listar-questionarios'] } }]" class="nav-link">Listar Questionários por Empresa</a></li>
+                        <li><a [routerLink]="['questionario']" class="nav-link">Cadastrar Questionarios</a></li>
+                        <li><a [routerLink]="['listar-questionarios']" class="nav-link">Listar Questionários por Empresa</a></li>
                     </ul>
                 </section>
                 <section class="nav-group collapsible">
                     <input id="tabinteresses" type="checkbox">
                     <label for="tabinteresses">Interesses</label>
                     <ul class="nav-list">
-                        <li><a [routerLink]="[{ outlets: { main: ['interesses'] } }]" class="nav-link">Cadastrar Interesses</a></li>
-                        <li><a [routerLink]="[{ outlets: { main: ['listar-interesses'] } }]" class="nav-link">Listar Interesses</a></li>
+                        <li><a [routerLink]="['interesses']" class="nav-link">Cadastrar Interesses</a></li>
+                        <li><a [routerLink]="['listar-interesses']" class="nav-link">Listar Interesses</a></li>
                     </ul>
                 </section>
                 <section class="nav-group collapsible">
                     <input id="tabperguntas" type="checkbox">
                     <label for="tabperguntas">Perguntas</label>
                     <ul class="nav-list">
-                        <li><a [routerLink]="[{ outlets: { main: ['perguntas'] } }]" class="nav-link">Cadastrar Perguntas</a></li>
-                        <li><a [routerLink]="[{ outlets: { main: ['listar-perguntas'] } }]" class="nav-link">Listar Perguntas</a></li>
+                        <li><a [routerLink]="['perguntas']" class="nav-link">Cadastrar Perguntas</a></li>
+                        <li><a [routerLink]="['listar-perguntas']" class="nav-link">Listar Perguntas</a></li>
                     </ul>
-                    
-                </section>                
+                </section>
             </section>
         </nav>
     </div>

@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  url: string = 'http://localhost:3000/';
+  url = 'http://localhost:3000/';
 
   constructor(public http: HttpClient) { }
 
-  listarUsuarios(): Observable<any>{
+  listarUsuarios(): Observable<any> {
     return this.http.get(this.url + 'usuario_final');
   }
 }

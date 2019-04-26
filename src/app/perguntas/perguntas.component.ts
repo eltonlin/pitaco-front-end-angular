@@ -8,8 +8,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class PerguntasComponent implements OnInit {
 
-  constructor(private titleService:Title) {
-    this.titleService.setTitle("Pitaco Perguntas");
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Pitaco Perguntas');
    }
 
   ngOnInit() {

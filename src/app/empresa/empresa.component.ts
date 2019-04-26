@@ -9,42 +9,44 @@ import { Empresas } from './empresas';
 })
 export class EmpresaComponent implements OnInit {
 
-  constructor (
+  constructor(
 
     private empresasService: EmpresaService,
     private titleService: Title
-    
-  ){
-  this.titleService.setTitle("Pitaco Empresa");
+
+  ) {
+    this.titleService.setTitle('Pitaco Empresa');
 
   }
-  empresa: Empresas = new Empresas(); 
-   
-  erro: boolean = false;
+  empresa: Empresas = new Empresas();
+
+  erro = false;
+
+  sucesso = false;
+
 
   ngOnInit() {
-    
-  }
-  sucesso: boolean = false;
 
-  insertEmpresa(){
+  }
+
+  insertEmpresa() {
     console.log(this.empresa);
-  this.empresasService.inserir(this.empresa).subscribe(
-    result => {
-      this.sucesso = true;
-      setTimeout(() => {
-        this.sucesso = false;
-      }, 3000);
-    
-    },
-    error => {
-      this.erro = true;
-      setTimeout(() => {
-        this.erro = false;
-      }, 3000);
-    
-    } 
-  )
+    this.empresasService.inserir(this.empresa).subscribe(
+      result => {
+        this.sucesso = true;
+        setTimeout(() => {
+          this.sucesso = false;
+        }, 3000);
+
+      },
+      error => {
+        this.erro = true;
+        setTimeout(() => {
+          this.erro = false;
+        }, 3000);
+
+      }
+    );
   }
 }
 
