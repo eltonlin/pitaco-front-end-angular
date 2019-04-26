@@ -1,20 +1,32 @@
 <clr-datagrid>
+    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>Usuários Finais</clr-dg-column>
-  <clr-dg-column>Nome</clr-dg-column>
+  <clr-dg-column>Nome
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
   <clr-dg-column>Cpf</clr-dg-column>
   <clr-dg-column>Faixa Salarial</clr-dg-column>
   <clr-dg-column>Pontuacao</clr-dg-column>
-  <clr-dg-column>Dt. Nascimento</clr-dg-column>
+  <clr-dg-column>Data de Nascimento</clr-dg-column>
 
-  <clr-dg-row *ngFor="let user of users">
+  <clr-dg-row *ngFor="let user of users" [clrDgItem]="user">
       <clr-dg-cell>{{ user.login_usuario }}</clr-dg-cell>
       <clr-dg-cell>{{ user.nome }}</clr-dg-cell>
       <clr-dg-cell>{{ user.cpf }}</clr-dg-cell>
       <clr-dg-cell>{{ user.faixa_salarial }}</clr-dg-cell>
       <clr-dg-cell>{{ user.pontuacao }}</clr-dg-cell>
       <clr-dg-cell>{{ user.data_nascimento }}</clr-dg-cell>
-     
+      <clr-dg-action-overflow>
+        <button class="action-item" (click)="onEdit(user)">Editar</button>
+        <button class="action-item" (click)="onDelete(user)">Apagar</button>
+    </clr-dg-action-overflow>
   </clr-dg-row>
 
-  <clr-dg-footer> </clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Usuários por páginas</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{pagination.totalItems}} Usuários
+    </clr-dg-pagination>
+</clr-dg-footer>
 </clr-datagrid>

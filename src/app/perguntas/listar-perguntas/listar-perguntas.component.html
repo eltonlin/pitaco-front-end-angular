@@ -1,4 +1,5 @@
 <clr-datagrid>
+    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>ID Pergunta</clr-dg-column>
   <clr-dg-column>Descrição</clr-dg-column>
   <clr-dg-column>Tipo da Pergunta</clr-dg-column>
@@ -8,8 +9,17 @@
   <clr-dg-row *ngFor="let user of users">
       <clr-dg-cell></clr-dg-cell>
       <clr-dg-cell></clr-dg-cell>
-     
+      <clr-dg-action-overflow>
+            <button class="action-item" (click)="onEdit(user)">Editar</button>
+            <button class="action-item" (click)="onDelete(user)">Apagar</button>
+        </clr-dg-action-overflow>
   </clr-dg-row>
 
-  <clr-dg-footer> </clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Perguntas por páginas</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{pagination.totalItems}} Perguntas
+    </clr-dg-pagination>
+</clr-dg-footer>
 </clr-datagrid>
