@@ -1,8 +1,9 @@
 <clr-datagrid>
+    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>ID da Empresa</clr-dg-column>
   <clr-dg-column>Empresa</clr-dg-column>
   <clr-dg-column>CNPJ</clr-dg-column>
-  <clr-dg-column>Usuario que cadastrou</clr-dg-column>
+  <clr-dg-column>Usuário que cadastrou</clr-dg-column>
   
 
   <clr-dg-row *ngFor="let empresa of empresas">
@@ -10,8 +11,17 @@
       <clr-dg-cell >{{ empresa.nome_empresa }}</clr-dg-cell>
       <clr-dg-cell >{{ empresa.cnpj }}</clr-dg-cell>
       <clr-dg-cell >{{ empresa.login_master }}</clr-dg-cell>
-     
+      <clr-dg-action-overflow>
+            <button class="action-item" (click)="onEdit(user)">Editar</button>
+            <button class="action-item" (click)="onDelete(user)">Apagar</button>
+        </clr-dg-action-overflow>
   </clr-dg-row>
 
-  <clr-dg-footer> </clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Empresas por páginas</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{pagination.totalItems}} Empresas
+    </clr-dg-pagination>
+</clr-dg-footer>
 </clr-datagrid>
