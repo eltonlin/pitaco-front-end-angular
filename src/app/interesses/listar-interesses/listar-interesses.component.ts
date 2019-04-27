@@ -16,6 +16,9 @@ export class ListarInteressesComponent implements OnInit {
   ) { }
 
   interesses: Interesses;
+  interesse: Interesses = new Interesses();
+  delete = false;
+  update = false;
 
   ngOnInit() {
     this.listarInteresse();
@@ -27,6 +30,16 @@ export class ListarInteressesComponent implements OnInit {
 
   editar(interesse: Interesses) {
     this.router.navigate([{ outlets: { main: [ 'interesses' ] }}]);
+  }
+
+  apagar(res) {
+    this.interesse = res;
+    this.delete = true;
+  }
+
+  updateFunc(res) {
+    this.interesse = res;
+    this.update = true;
   }
 
 }
