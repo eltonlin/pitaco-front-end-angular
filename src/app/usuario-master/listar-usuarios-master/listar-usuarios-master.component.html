@@ -17,8 +17,8 @@
       <clr-dg-cell>{{ user.pontuacao }}</clr-dg-cell>
       <clr-dg-cell>{{ user.data_nascimento }}</clr-dg-cell>
       <clr-dg-action-overflow>
-        <button class="action-item" (click)="onEdit(user)">Editar</button>
-        <button class="action-item" (click)="onDelete(user)">Apagar</button>
+        <button class="action-item" (click)="updateFunc(user)">Editar</button>
+        <button class="action-item" (click)="apagar(user)">Apagar</button>
     </clr-dg-action-overflow>
   </clr-dg-row>
 
@@ -30,3 +30,51 @@
     </clr-dg-pagination>
 </clr-dg-footer>
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="delete">
+  <h3 class="modal-title">Excluir</h3>
+  <div class="modal-body">
+    <p>Tem certeza que deseja excluir?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="delete = false">Não</button>
+    <button type="button" class="btn btn-primary" (click)="delete = false">Sim</button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="update">
+  <h3 class="modal-title">Editar</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label>Nome:</label>
+        <input clrInput type="text" [(ngModel)]="usuario.nome" name="nome" required />
+        <clr-control-error>O nome deve ser inserido!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>CPF:</label>
+        <input clrInput type="text" [(ngModel)]="usuario.cpf" name="cpf" required />
+        <clr-control-error>O CPF deve ser inserido!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Faixa Salarial:</label>
+        <input clrInput type="text" [(ngModel)]="usuario.faixa_salarial" name="salario" required />
+        <clr-control-error>A faixa salarial deve ser inserida!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Pontuação:</label>
+        <input clrInput type="text" [(ngModel)]="usuario.pontuacao" name="pontucao" required />
+        <clr-control-error>A pontuação deve ser inserida!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Data de Nascimento:</label>
+        <input clrInput type="text" [(ngModel)]="usuario.data_nascimento" name="data" required />
+        <clr-control-error>A data de nascimento deve ser inserida!</clr-control-error>
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="update = false">Salvar</button>
+  </div>
+</clr-modal>
