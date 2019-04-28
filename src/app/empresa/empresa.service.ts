@@ -6,18 +6,17 @@ import { Empresas } from './empresas';
 @Injectable({
   providedIn: 'root'
 })
-export class EmpresaService 
-{
-  url: string = 'http://localhost:3000/';
+export class EmpresaService {
+  url = 'http://localhost:3000/';
 
   constructor(public http: HttpClient) { }
 
-  listarEmpresas(): Observable<any>{
+  listarEmpresas(): Observable<any> {
     return this.http.get(this.url + 'empresas');
   }
 
-  inserir(empresa: Empresas): Observable<any>{
-    return this.http.post(this.url + '/empresas', empresa )
+  inserir(empresa: Empresas): Observable<any> {
+    return this.http.post(this.url + 'empresas', empresa );
   }
 
 }

@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       user => {
         this.usuarioMaster = user;
         window.localStorage.setItem('user', this.usuarioMaster.nome);
+        window.localStorage.setItem('login_master', this.usuarioMaster.login_master);
         this.router.navigate(['home']);
       },
       error => {

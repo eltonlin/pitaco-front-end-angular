@@ -24,9 +24,11 @@ export class EmpresaComponent implements OnInit {
 
   sucesso = false;
 
+  errorMessage: string;
+
 
   ngOnInit() {
-
+    this.empresa.login_master = window.localStorage.getItem('login_master');
   }
 
   insertEmpresa() {
@@ -40,6 +42,7 @@ export class EmpresaComponent implements OnInit {
 
       },
       error => {
+        this.errorMessage = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;

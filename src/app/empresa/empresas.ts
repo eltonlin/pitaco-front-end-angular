@@ -1,5 +1,7 @@
 export class Empresas {
-    id_empresa: number; 
-    empresa: string;
+    razao_social: number;
+    nome_fantasia: string;
+    cnpj: string;
+    login_master: string;
 
 }

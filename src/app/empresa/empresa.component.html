@@ -1,24 +1,42 @@
-<h1><strong>Cadastrar Empresa</strong></h1>
+<h1>
+  <strong>Cadastrar Empresa</strong>
+</h1>
 <form clrForm clrLayout="vertical">
   <clr-input-container>
-      <label>Nome da Empresa</label>
-      <input clrInput type="text" [(ngModel)]="nomeEmpresa" name="nomeEmpresa" required />
-      <clr-control-error>O nome deve ser inserido!</clr-control-error>
+    <label>Razão Social</label>
+    <input clrInput type="text" [(ngModel)]="empresa.razao_social" name="razao_social" required />
+    <clr-control-error>O nome deve ser inserido!</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label>Nome Fantasia</label>
+    <input clrInput type="text" [(ngModel)]="empresa.nome_fantasia" name="nome_fantasia" required />
+    <clr-control-error>O nome deve ser inserido!</clr-control-error>
   </clr-input-container>
   <clr-input-container>
     <label>CNPJ da Empresa</label>
-    <input clrInput type="text" [(ngModel)]="cnpjEmpresa" name="cnpjEmpresa" required />
+    <input clrInput type="text" [(ngModel)]="empresa.cnpj" name="cnpjEmpresa" required />
     <clr-control-error>O CNPJ deve ser inserido!</clr-control-error>
-</clr-input-container>
-<br />
-<button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
-
-<!-- 
-<clr-input-container>
-  <label>Assunto da pesquisa</label>
-  <input clrInput type="text" [(ngModel)]="assuntoPesquisa" name="assuntoPesquisa" required />
-  <clr-control-error>O assunto da pesquisa deve ser inserido!</clr-control-error>
-</clr-input-container>
-<clr-input-container> 
--->
-  
+  </clr-input-container>
+  <br />
+  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="insertEmpresa()">cadastrar</button>
+  <div *ngIf="sucesso" class="alert alert-success" role="alert">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+        </div>
+        <span class="alert-text">Interesse cadastrado com sucesso</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="erro" class="alert alert-danger" role="alert">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+        </div>
+        <span class="alert-text">{{ errorMessage }} </span>
+      </div>
+    </div>
+  </div>
+</form>

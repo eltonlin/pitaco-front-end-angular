@@ -1,15 +1,15 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>ID da Empresa</clr-dg-column>
-  <clr-dg-column>Empresa</clr-dg-column>
-  <clr-dg-column>CNPJ</clr-dg-column>
+  <clr-dg-column>Cnpj da Empresa</clr-dg-column>
+  <clr-dg-column>Razão Social</clr-dg-column>
+  <clr-dg-column>Nome Fantasia</clr-dg-column>
   <clr-dg-column>Usuário que cadastrou</clr-dg-column>
-  
+
 
   <clr-dg-row *ngFor="let empresa of empresas">
-      <clr-dg-cell >{{ empresa.id_empresa }}</clr-dg-cell>
-      <clr-dg-cell >{{ empresa.nome_empresa }}</clr-dg-cell>
       <clr-dg-cell >{{ empresa.cnpj }}</clr-dg-cell>
+      <clr-dg-cell >{{ empresa.razao_social }}</clr-dg-cell>
+      <clr-dg-cell >{{ empresa.nome_fantasia }}</clr-dg-cell>
       <clr-dg-cell >{{ empresa.login_master }}</clr-dg-cell>
       <clr-dg-action-overflow>
             <button class="action-item" (click)="updateFunc(empresa)">Editar</button>
@@ -42,14 +42,19 @@
   <div class="modal-body">
     <form clrForm>
       <clr-input-container>
-        <label>Nome da Empresa:</label>
-        <input clrInput type="text" [(ngModel)]="empresa.nome_empresa" name="nome_empresa" required />
-        <clr-control-error>O nome da empresa deve ser inserido!</clr-control-error>
-      </clr-input-container>
-      <clr-input-container>
         <label>CNPJ:</label>
         <input clrInput type="text" [(ngModel)]="empresa.cnpj" name="cnpj" required />
-        <clr-control-error>O CNPJ deve ser inserido!</clr-control-error>
+        <clr-control-error>O CNPJ deve ser inserido</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Razáo Social:</label>
+        <input clrInput type="text" [(ngModel)]="empresa.razao_social" name="razao_social" required />
+        <clr-control-error>A razáo social deve ser inserida!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Nome fantasia:</label>
+        <input clrInput type="text" [(ngModel)]="empresa.nome_fantasia" name="nome_fantasia" required />
+        <clr-control-error>O nome fantasia deve ser inserido!</clr-control-error>
       </clr-input-container>
     </form>
   </div>

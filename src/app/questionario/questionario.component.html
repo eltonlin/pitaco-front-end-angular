@@ -13,28 +13,13 @@
   <clr-select-container>
     <label>Empresa</label>
     <select clrSelect name="optionsEmpresa" [(ngModel)]="optionsEmpresa">
-      <option value="one">Empresa 1</option>
-      <option value="two">Empresa 2</option>
-      <option value="three">Empresa 3</option>
+      <option *ngFor="let empresa of empresas" value="empresa.cnpj">{{ empresa.razao_social }}</option>
     </select>
   </clr-select-container>
   <clr-select-container>
     <label>Interesse</label>
     <select clrSelect name="optionsInteresse" [(ngModel)]="optionsInteresse">
-      <option value="música">Música</option>
-      <option value="Esporte">Esporte</option>
-      <option value="Carros">Carros</option>
-      <option value="Filmes">Filmes</option>
-      <option value="Comida">Comida</option>
-      <option value="Bebida">Bebida</option>
-      <option value="Politica">Política</option>
-      <option value="Eletroeletronicos">Eletroeletronicos</option>
-      <option value="Viagens">Viagens</option>
-      <option value="Educacao">Educaçao</option>
-      <option value="Fofoca">Fofoca</option>
-      <option value="Intenet">Intenet</option>
-      <option value="Economia">Economia</option>
-      <option value="Livros">Livros</option>
+      <option *ngFor="let interesse of interesses" value="interesse.id_interesse">{{ interesse.descricao }}</option>
     </select>
   </clr-select-container>
   <br />
