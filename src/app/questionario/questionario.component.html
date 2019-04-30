@@ -3,25 +3,29 @@
 <form clrForm clrLayout="vertical">
   <clr-textarea-container>
     <label>Descrição do Questionário</label>
-    <textarea clrTextarea rows="4" placeholder="descrição"></textarea>
+    <textarea clrTextarea rows="4"  maxlength="100" placeholder="descrição"></textarea>
   </clr-textarea-container>
+  <span class="clr-subtext">A descrição do questionário deve ter no máximo 100 caracteres.</span>
   <clr-input-container>
     <label>Pontuação do Questionario</label>
-    <input clrInput type="text" [(ngModel)]="pontuacaoQuestionario" name="pontuacaoQuestionario" required />
+    <input clrInput type="number" min="1" max="999" [(ngModel)]="pontuacaoQuestionario" name="pontuacaoQuestionario" required />
     <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
-  </clr-input-container><br />
+  </clr-input-container>
+  <span class="clr-subtext">A pontuação do questionário deve ser de no máximo 999 pontos.</span>
   <clr-select-container>
     <label>Empresa</label>
     <select clrSelect name="optionsEmpresa" [(ngModel)]="optionsEmpresa">
       <option *ngFor="let empresa of empresas" value="empresa.cnpj">{{ empresa.razao_social }}</option>
     </select>
   </clr-select-container>
+  <span class="clr-subtext">Selecione a empresa a qual esse questionário pertence.</span>
   <clr-select-container>
     <label>Interesse</label>
     <select clrSelect name="optionsInteresse" [(ngModel)]="optionsInteresse">
       <option *ngFor="let interesse of interesses" value="interesse.id_interesse">{{ interesse.descricao }}</option>
     </select>
   </clr-select-container>
+  <span class="clr-subtext">Selecione o Interesse do Questionário.</span>
   <br />
   <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
 </form>

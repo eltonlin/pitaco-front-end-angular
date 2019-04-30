@@ -1,9 +1,17 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>Cnpj da Empresa</clr-dg-column>
-  <clr-dg-column>Razão Social</clr-dg-column>
-  <clr-dg-column>Nome Fantasia</clr-dg-column>
-  <clr-dg-column>Usuário que cadastrou</clr-dg-column>
+  <clr-dg-column>Cnpj da Empresa
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Razão Social
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Nome Fantasia
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Usuário que cadastrou
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
 
 
   <clr-dg-row *ngFor="let empresa of empresas">
