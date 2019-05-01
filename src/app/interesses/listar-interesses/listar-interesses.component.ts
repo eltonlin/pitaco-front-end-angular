@@ -17,6 +17,9 @@ export class ListarInteressesComponent implements OnInit {
 
   interesses: Interesses;
   interesse: Interesses = new Interesses();
+  errorMessage = String;
+  sucesso = false;
+  erro = false;
   delete = false;
   update = false;
 
@@ -28,8 +31,26 @@ export class ListarInteressesComponent implements OnInit {
     this.interesseService.listarInteresses().subscribe(interesses => this.interesses = interesses);
   }
 
-  editar(interesse: Interesses) {
-    this.router.navigate([{ outlets: { main: [ 'interesses' ] }}]);
+  atualizar(res) {
+    console.log(res);
+    this.interesseService.atualizar(res).subscribe(
+      result => {
+        this.sucesso = true;
+        setTimeout(() => {
+          this.sucesso = false;
+        }, 3000);
+
+      },
+      error => {
+        this.errorMessage = error.error.message;
+        this.erro = true;
+        setTimeout(() => {
+          this.erro = false;
+        }, 3000);
+
+      }
+    );
+    this.update = false;
   }
 
   apagar(res) {

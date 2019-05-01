@@ -1,5 +1,5 @@
 <clr-datagrid>
-    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
+  <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>Cnpj da Empresa
     <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
   </clr-dg-column>
@@ -15,23 +15,23 @@
 
 
   <clr-dg-row *ngFor="let empresa of empresas">
-      <clr-dg-cell >{{ empresa.cnpj }}</clr-dg-cell>
-      <clr-dg-cell >{{ empresa.razao_social }}</clr-dg-cell>
-      <clr-dg-cell >{{ empresa.nome_fantasia }}</clr-dg-cell>
-      <clr-dg-cell >{{ empresa.login_master }}</clr-dg-cell>
-      <clr-dg-action-overflow>
-            <button class="action-item" (click)="updateFunc(empresa)">Editar</button>
-            <button class="action-item" (click)="apagar(empresa)">Apagar</button>
-        </clr-dg-action-overflow>
+    <clr-dg-cell>{{ empresa.cnpj }}</clr-dg-cell>
+    <clr-dg-cell>{{ empresa.razao_social }}</clr-dg-cell>
+    <clr-dg-cell>{{ empresa.nome_fantasia }}</clr-dg-cell>
+    <clr-dg-cell>{{ empresa.login_master }}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="updateFunc(empresa)">Editar</button>
+      <button class="action-item" (click)="apagar(empresa)">Apagar</button>
+    </clr-dg-action-overflow>
   </clr-dg-row>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
-        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Empresas por páginas</clr-dg-page-size>
-        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-        de {{pagination.totalItems}} Empresas
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Empresas por páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      de {{pagination.totalItems}} Empresas
     </clr-dg-pagination>
-</clr-dg-footer>
+  </clr-dg-footer>
 </clr-datagrid>
 
 <clr-modal [(clrModalOpen)]="delete">
@@ -50,11 +50,6 @@
   <div class="modal-body">
     <form clrForm>
       <clr-input-container>
-        <label>CNPJ:</label>
-        <input clrInput type="text" [(ngModel)]="empresa.cnpj" name="cnpj" required />
-        <clr-control-error>O CNPJ deve ser inserido</clr-control-error>
-      </clr-input-container>
-      <clr-input-container>
         <label>Razáo Social:</label>
         <input clrInput type="text" [(ngModel)]="empresa.razao_social" name="razao_social" required />
         <clr-control-error>A razáo social deve ser inserida!</clr-control-error>
@@ -68,6 +63,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
-    <button type="button" class="btn btn-primary" (click)="update = false">Salvar</button>
+    <button type="button" class="btn btn-primary" (click)="atualizarEmpresa(empresa)">Salvar</button>
   </div>
 </clr-modal>

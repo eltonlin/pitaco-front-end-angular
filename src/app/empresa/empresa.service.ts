@@ -16,7 +16,11 @@ export class EmpresaService {
   }
 
   inserir(empresa: Empresas): Observable<any> {
-    return this.http.post(this.url + 'empresas', empresa );
+    return this.http.post(this.url + 'empresas', empresa);
+  }
+
+  atualizar(empresa: Empresas): Observable<any> {
+    return this.http.put(this.url + 'empresas/atualizar', empresa);
   }
 
 }

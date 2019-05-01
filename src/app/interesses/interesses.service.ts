@@ -12,12 +12,16 @@ export class InteressesService {
 
   constructor(public http: HttpClient) { }
 
- inserir(interesse: Interesses): Observable<any> {
-   return this.http.post(this.url + 'interesse_usuario/cadastrar', interesse );
- }
+  inserir(interesse: Interesses): Observable<any> {
+    return this.http.post(this.url + 'interesse_usuario/cadastrar', interesse);
+  }
 
- listarInteresses(): Observable<any> {
-   return this.http.get(this.url + 'interesses');
- }
+  listarInteresses(): Observable<any> {
+    return this.http.get(this.url + 'interesses');
+  }
+
+  atualizar(interesse: Interesses): Observable<any> {
+    return this.http.put(this.url + 'interesses/atualizar', interesse);
+  }
 
 }

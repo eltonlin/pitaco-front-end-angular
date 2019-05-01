@@ -12,11 +12,14 @@ export class ListarEmpresasComponent implements OnInit {
 
   empresas: any;
   empresa = {
-    id_empresa: Number,
-    nome_empresa: String,
+    razao_social: String,
+    nome_fantasia: String,
     cnpj: String,
-    login_master: String
+    login_master: String,
   }
+  erro = false;
+  sucesso = false;
+  errorMessage: string;
   delete = false;
   update = false;
 
@@ -26,7 +29,29 @@ export class ListarEmpresasComponent implements OnInit {
   }
 
   listarEmpresas() {
-    this.empresaService.listarEmpresas().subscribe(empresas => {this.empresas = empresas; console.log(this.empresas); });
+    this.empresaService.listarEmpresas().subscribe(empresas => { this.empresas = empresas; console.log(this.empresas); });
+  }
+
+  atualizarEmpresa(res) {
+    console.log(res);
+    this.empresaService.atualizar(res).subscribe(
+      result => {
+        this.sucesso = true;
+        setTimeout(() => {
+          this.sucesso = false;
+        }, 3000);
+
+      },
+      error => {
+        this.errorMessage = error.error.message;
+        this.erro = true;
+        setTimeout(() => {
+          this.erro = false;
+        }, 3000);
+
+      }
+    );
+    this.update = false;
   }
 
   apagar(res) {
