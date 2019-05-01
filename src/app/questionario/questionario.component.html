@@ -1,27 +1,99 @@
-<h1><strong>Cadastrar Questionário</strong></h1>
-
-<form clrForm clrLayout="vertical">
-  <clr-textarea-container>
-    <label>Descrição do Questionário</label>
-    <textarea clrTextarea rows="4" placeholder="descrição"></textarea>
-  </clr-textarea-container>
-  <clr-input-container>
-    <label>Pontuação do Questionario</label>
-    <input clrInput type="text" [(ngModel)]="pontuacaoQuestionario" name="pontuacaoQuestionario" required />
-    <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
-  </clr-input-container><br />
-  <clr-select-container>
-    <label>Empresa</label>
-    <select clrSelect name="optionsEmpresa" [(ngModel)]="optionsEmpresa">
-      <option *ngFor="let empresa of empresas" value="empresa.cnpj">{{ empresa.razao_social }}</option>
-    </select>
-  </clr-select-container>
-  <clr-select-container>
-    <label>Interesse</label>
-    <select clrSelect name="optionsInteresse" [(ngModel)]="optionsInteresse">
-      <option *ngFor="let interesse of interesses" value="interesse.id_interesse">{{ interesse.descricao }}</option>
-    </select>
-  </clr-select-container>
-  <br />
-  <button [clrLoading]="validateBtnState" class="btn btn-info-outline" (click)="validateDemo()">cadastrar</button>
-</form>
+<h1>
+  <strong>Cadastrar Questionário</strong>
+</h1>
+<div class="clr-row">
+  <div class="clr-col-12">
+    <div class="card">
+      <div class="card-header">
+        Questionário
+      </div>
+      <div class="card-block">
+        <form clrForm clrLayout="vertical">
+          <clr-textarea-container>
+            <label>Descrição do Questionário</label>
+            <textarea clrTextarea rows="4" placeholder="descrição" name="descricao1" [(ngModel)]="questionario.descricao_questionario"></textarea>
+          </clr-textarea-container>
+          <clr-input-container>
+            <label>Pontuação do Questionario</label>
+            <input clrInput type="number" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario" required />
+            <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
+          </clr-input-container>
+          <clr-select-container>
+            <label>Empresa</label>
+            <select clrSelect name="optionsEmpresa" [(ngModel)]="questionario.empresa_cnpj">
+              <option *ngFor="let empresa of empresas" [value]="empresa.cnpj">{{ empresa.razao_social }}</option>
+            </select>
+          </clr-select-container>
+          <clr-select-container>
+            <label>Interesse</label>
+            <select clrSelect name="optionsInteresse" [(ngModel)]="questionario.id_interesse">
+              <option *ngFor="let interesse of interesses" [value]="interesse.id_interesse">{{ interesse.descricao }}</option>
+            </select>
+          </clr-select-container>
+        </form>
+        <div *ngFor="let pergunta of questionario.perguntas">
+          <div class="card">
+            <div class="card-header">
+              Pergunta
+            </div>
+            <div class="card-block">
+              <clr-input-container>
+                <label>Pontuação do Questionario</label>
+                <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" name="descricaoPergunta" required />
+                <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
+              </clr-input-container>
+              <clr-select-container>
+                <label>Tipo de pergunta</label>
+                <select clrSelect name="optionsTipoPergunta" [(ngModel)]="pergunta.tipo_pergunta">
+                  <option value="M">Múltipla Escolha</option>
+                  <option value="C">Caixa de Seleção</option>
+                </select>
+              </clr-select-container>
+              <div class="card">
+                <div class="card-header">
+                  Respostas
+                </div>
+                <div class="card-block">
+                  <div *ngFor="let opcao of pergunta.opcoes">
+                    <clr-input-container>
+                      <label>Descrição</label>
+                      <input clrInput type="text" [(ngModel)]="opcao.descricao_opcao" name="descricaoOpcao" required />
+                      <clr-control-error>A descrição da opção deve ser inserida</clr-control-error>
+                    </clr-input-container>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button class="btn btn-info-outline" (click)="adicionarOpcao(pergunta)">Adicionar Respotas</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-info-outline" (click)="adicionarPergunta()">Adicionar Pergunta</button>
+        <button [clrLoading]="validateBtnState" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="sucesso" class="alert alert-success" role="alert">
+    <div class="alert-items">
+        <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+            </div>
+            <span class="alert-text">{{ messageCadastrar }}</span>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="erro" class="alert alert-danger" role="alert">
+    <div class="alert-items">
+        <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+            </div>
+            <span class="alert-text">{{ messageCadastrar }} </span>
+        </div>
+    </div>
+  </div>
