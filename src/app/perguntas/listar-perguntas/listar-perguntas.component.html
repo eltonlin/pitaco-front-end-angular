@@ -1,8 +1,12 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>ID Pergunta</clr-dg-column>
-  <clr-dg-column>Descrição</clr-dg-column>
-  <clr-dg-column>Tipo da Pergunta</clr-dg-column>
+  <clr-dg-column>Descrição
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column>Tipo da Pergunta
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
   <clr-dg-column>Questionário relacionado a esta Pergunta</clr-dg-column>
   
 

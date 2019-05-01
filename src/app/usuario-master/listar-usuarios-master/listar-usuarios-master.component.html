@@ -1,6 +1,8 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>Usuários Finais</clr-dg-column>
+  <clr-dg-column>Usuários
+    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
+  </clr-dg-column>
   <clr-dg-column>Nome
     <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
   </clr-dg-column>
