@@ -23,4 +23,8 @@ export class EmpresaService {
     return this.http.put(this.url + 'empresas/atualizar', empresa);
   }
 
+  deletar(empresa: Empresas): Observable<any> {
+    return this.http.put(this.url + 'empresas/deletar', empresa);
+  }
+
 }

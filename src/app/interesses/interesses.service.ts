@@ -24,4 +24,8 @@ export class InteressesService {
     return this.http.put(this.url + 'interesses/atualizar', interesse);
   }
 
+  deletarInteresses(interesse: Interesses): Observable<any> {
+    return this.http.put(this.url + 'interesses/deletar', interesse);
+  }
+
 }

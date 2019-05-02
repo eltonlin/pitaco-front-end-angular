@@ -54,6 +54,29 @@ export class ListarEmpresasComponent implements OnInit {
     this.update = false;
   }
 
+  deletar(res) {
+    console.log(res);
+    this.empresaService.deletar(res).subscribe(
+      result => {
+        this.sucesso = true;
+        setTimeout(() => {
+          this.sucesso = false;
+        }, 3000);
+
+      },
+      error => {
+        this.errorMessage = error.error.message;
+        this.erro = true;
+        setTimeout(() => {
+          this.erro = false;
+        }, 3000);
+
+      }
+    );
+    this.delete = false;
+    window.location.reload();
+  }
+
   apagar(res) {
     this.empresa = res;
     this.delete = true;
