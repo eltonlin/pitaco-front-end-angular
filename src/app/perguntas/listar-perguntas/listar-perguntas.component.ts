@@ -31,8 +31,8 @@ export class ListarPerguntasComponent implements OnInit {
   perguntas;
 
   ngOnInit() {
-    this.listarPerguntas();
     this.id = this.route.snapshot.paramMap.get('id');
+    this.listarPerguntas();
   }
 
   listarPerguntas() {
@@ -90,6 +90,10 @@ export class ListarPerguntasComponent implements OnInit {
   editar(res) {
     this.pergunta = res;
     this.update = true;
+  }
+
+  opcoes(pergunta) {
+    //this.router.navigate(['', { id: pergunta.id_questionario }]);
   }
 
 }

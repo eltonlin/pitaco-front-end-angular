@@ -16,7 +16,7 @@ export class PerguntasService {
     }
 
     listarPergunta(idparam: any): Observable<any> {
-        return this.http.get(this.url + 'pergunta/listar_por_questionario/', idparam);
+        return this.http.get(this.url + 'pergunta/listar_por_questionario/' + idparam);
     }
 
     atualizar(pergunta: any): Observable<any> {
