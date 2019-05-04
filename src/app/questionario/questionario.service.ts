@@ -14,4 +14,8 @@ export class QuestionarioService {
   cadastrarQuestionario(questionario: any): Observable<any> {
     return this.http.post(this.url + 'questionario', questionario);
   }
+
+  consultarQuestionario(): Observable<any> {
+    return this.http.get(this.url + 'questionario');
+  }
 }

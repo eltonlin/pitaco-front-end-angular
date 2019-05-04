@@ -13,6 +13,7 @@ import { ListarPerguntasComponent } from '../perguntas/listar-perguntas/listar-p
 import { ListarQuestionariosComponent } from '../questionario/listar-questionarios/listar-questionarios.component';
 import { ListarUsuariosMasterComponent } from '../usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 import { HomeComponent } from './home.component';
+import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'listar-questionarios', component: ListarQuestionariosComponent },
       { path: 'listar-usuarios-master', component: ListarUsuariosMasterComponent },
       { path: 'empresa', component: EmpresaComponent},
+      { path: 'questionario-detalhe', component: DetalheQuestionarioComponent}
     ]
   }
 ];

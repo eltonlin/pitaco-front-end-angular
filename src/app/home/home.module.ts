@@ -17,6 +17,7 @@ import { ListarQuestionariosComponent } from '../questionario/listar-questionari
 import { ListarUsuariosMasterComponent } from '../usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 import { HomeComponent } from './home.component';
 import { ClarityModule } from '@clr/angular';
+import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ClarityModule } from '@clr/angular';
     ListarPerguntasComponent,
     ListarQuestionariosComponent,
     ListarUsuariosMasterComponent,
-    HomeComponent
+    DetalheQuestionarioComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

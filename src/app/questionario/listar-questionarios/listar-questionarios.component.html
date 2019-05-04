@@ -1,30 +1,25 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>ID do Questionário</clr-dg-column>
-  <clr-dg-column>Descrição do Questionário
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Pontuação
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Usuário Master que Cadastrou
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Empresa
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Interesse
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  
+  <clr-dg-column [clrDgField]="'id_questionario'">ID do Questionário</clr-dg-column>
+  <clr-dg-column [clrDgField]="'descricao_questionario'">Descrição do Questionário</clr-dg-column>
+  <clr-dg-column [clrDgField]="'pontuacao_questionario'">Pontuação</clr-dg-column>
+  <clr-dg-column [clrDgField]="'login_master'">Usuário Master que Cadastrou</clr-dg-column>
+  <clr-dg-column [clrDgField]="'razao_social'">Empresa</clr-dg-column>
+  <clr-dg-column [clrDgField]="'interesse_descricao'">Interesse</clr-dg-column>
 
-  <clr-dg-row *ngFor="let user of users">
-      <clr-dg-cell></clr-dg-cell>
-      <clr-dg-cell></clr-dg-cell>
-      <clr-dg-action-overflow>
-            <button class="action-item" (click)="onEdit(user)">Editar</button>
-            <button class="action-item" (click)="onDelete(user)">Apagar</button>
-        </clr-dg-action-overflow>
+
+  <clr-dg-row *clrDgItems="let questionario of questionarios">
+    <clr-dg-cell>{{ questionario.id_questionario }}</clr-dg-cell>
+    <clr-dg-cell>{{ questionario.descricao_questionario }}</clr-dg-cell>
+    <clr-dg-cell>{{ questionario.pontuacao_questionario }}</clr-dg-cell>
+    <clr-dg-cell>{{ questionario.login_master }}</clr-dg-cell>
+    <clr-dg-cell>{{ questionario.razao_social }}</clr-dg-cell>
+    <clr-dg-cell>{{ questionario.interesse_descricao }}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="updateFunc(empresa)">Editar</button>
+      <button class="action-item" (click)="apagar(empresa)">Apagar</button>
+      <button class="action-item" (click)="detalhar(questionario)">Detalhar</button>
+    </clr-dg-action-overflow>
   </clr-dg-row>
 
   <clr-dg-footer>
