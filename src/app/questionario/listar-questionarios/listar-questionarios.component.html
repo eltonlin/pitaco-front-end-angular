@@ -1,5 +1,5 @@
 <clr-datagrid>
-    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
+  <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column [clrDgField]="'id_questionario'">ID do Questionário</clr-dg-column>
   <clr-dg-column [clrDgField]="'descricao_questionario'">Descrição do Questionário</clr-dg-column>
   <clr-dg-column [clrDgField]="'pontuacao_questionario'">Pontuação</clr-dg-column>
@@ -16,17 +16,58 @@
     <clr-dg-cell>{{ questionario.razao_social }}</clr-dg-cell>
     <clr-dg-cell>{{ questionario.interesse_descricao }}</clr-dg-cell>
     <clr-dg-action-overflow>
-      <button class="action-item" (click)="updateFunc(empresa)">Editar</button>
-      <button class="action-item" (click)="apagar(empresa)">Apagar</button>
+      <button class="action-item" (click)="editar(questionario)">Editar</button>
+      <button class="action-item" (click)="apagar(questionario)">Apagar</button>
       <button class="action-item" (click)="detalhar(questionario)">Detalhar</button>
     </clr-dg-action-overflow>
   </clr-dg-row>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
-        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Questionários por páginas</clr-dg-page-size>
-        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-        de {{pagination.totalItems}} Questionários
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Questionários por páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      de {{pagination.totalItems}} Questionários
     </clr-dg-pagination>
-</clr-dg-footer>
+  </clr-dg-footer>
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="delete">
+  <h3 class="modal-title">Excluir</h3>
+  <div class="modal-body">
+    <p>Tem certeza que deseja excluir?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="delete = false">Não</button>
+    <button type="button" class="btn btn-primary" (click)="deletar(questionario)">Sim</button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="update">
+  <h3 class="modal-title">Editar</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label>Descrição:</label>
+        <input clrInput type="text" [(ngModel)]="questionario.descricao_questionario" name="descricao_questionario"
+          required />
+        <clr-control-error>A descrição deve ser inserido!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Pontuação:</label>
+        <input clrInput type="text" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacao_questionario"
+          required />
+        <clr-control-error>A pontuação deve ser inserido!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Interesse:</label>
+        <input clrInput type="text" [(ngModel)]="questionario.interesse_descricao" name="interesse_descricao"
+          required />
+        <clr-control-error>O interesse deve ser inserido!</clr-control-error>
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="atualizar(questionario)">Salvar</button>
+  </div>
+</clr-modal>

@@ -18,4 +18,12 @@ export class QuestionarioService {
   consultarQuestionario(): Observable<any> {
     return this.http.get(this.url + 'questionario');
   }
+
+  editarQuestionario(res): Observable<any> {
+    return this.http.put(this.url + '', res);
+  }
+
+  deletarQuestionario(res): Observable<any> {
+    return this.http.put(this.url + '', res);
+  }
 }

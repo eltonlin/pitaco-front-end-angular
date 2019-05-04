@@ -47,7 +47,6 @@ export class ListarInteressesComponent implements OnInit {
         setTimeout(() => {
           this.erro = false;
         }, 3000);
-
       }
     );
     this.update = false;
@@ -69,7 +68,6 @@ export class ListarInteressesComponent implements OnInit {
         setTimeout(() => {
           this.erro = false;
         }, 3000);
-
       }
     );
     this.delete = false;
