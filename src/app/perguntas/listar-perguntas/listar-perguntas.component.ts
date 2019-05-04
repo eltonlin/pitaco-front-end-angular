@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PerguntasService } from '../perguntas.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class ListarPerguntasComponent implements OnInit {
 
   constructor(
     private perguntasService: PerguntasService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
+  id: string;
   pergunta = {
     id_pergunta: Number,
     descricao_pergunta: String,
@@ -29,10 +32,11 @@ export class ListarPerguntasComponent implements OnInit {
 
   ngOnInit() {
     this.listarPerguntas();
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
   listarPerguntas() {
-    this.perguntasService.listarPergunta().subscribe(interesses => this.perguntas = interesses);
+    this.perguntasService.listarPergunta(this.id).subscribe(perguntas => this.perguntas = perguntas);
   }
 
   atualizar(res) {

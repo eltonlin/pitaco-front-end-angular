@@ -39,7 +39,7 @@ export class ListarQuestionariosComponent implements OnInit {
   }
 
   perguntas(questionario) {
-    //this.router.navigate(['/home/questionario-detalhe', { id: questionario.id_questionario }]);
+    this.router.navigate(['/home/listar-perguntas', { id: questionario.id_questionario }]);
   }
 
   editar(res) {
