@@ -1,9 +1,7 @@
 <clr-datagrid>
   <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>Id</clr-dg-column>
-  <clr-dg-column>Descrição
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
+  <clr-dg-column [clrDgField]="'descricao'">Descrição</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let interesse of interesses">
     <clr-dg-cell>{{ interesse.id_interesse }}</clr-dg-cell>

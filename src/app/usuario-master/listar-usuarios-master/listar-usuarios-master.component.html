@@ -1,17 +1,13 @@
 <clr-datagrid>
     <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>Usuários
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Nome
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Cpf</clr-dg-column>
-  <clr-dg-column>Faixa Salarial</clr-dg-column>
-  <clr-dg-column>Pontuacao</clr-dg-column>
-  <clr-dg-column>Data de Nascimento</clr-dg-column>
+  <clr-dg-column [clrDgField]="'login_usuario'">Usuários</clr-dg-column>
+  <clr-dg-column [clrDgField]="'nome'">Nome</clr-dg-column>
+  <clr-dg-column [clrDgField]="'cpf'">Cpf</clr-dg-column>
+  <clr-dg-column [clrDgField]="'faixa_salarial'"> Faixa Salarial</clr-dg-column>
+  <clr-dg-column [clrDgField]="'pontuacao'">Pontuacao</clr-dg-column>
+  <clr-dg-column [clrDgField]="'data_nascimento'">Data de Nascimento</clr-dg-column>
 
-  <clr-dg-row *ngFor="let user of users" [clrDgItem]="user">
+  <clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
       <clr-dg-cell>{{ user.login_usuario }}</clr-dg-cell>
       <clr-dg-cell>{{ user.nome }}</clr-dg-cell>
       <clr-dg-cell>{{ user.cpf }}</clr-dg-cell>

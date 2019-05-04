@@ -1,20 +1,12 @@
 <clr-datagrid>
   <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
-  <clr-dg-column>Cnpj da Empresa
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Razão Social
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Nome Fantasia
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Usuário que cadastrou
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
+  <clr-dg-column [clrDgField]="'cnpj'">Cnpj da Empresa</clr-dg-column>
+  <clr-dg-column [clrDgField]="'razao_social'">Razão Social</clr-dg-column>
+  <clr-dg-column [clrDgField]="'nome_fantasia'">Nome Fantasia</clr-dg-column>
+  <clr-dg-column [clrDgField]="'login_master'">Usuário que cadastrou</clr-dg-column>
 
 
-  <clr-dg-row *ngFor="let empresa of empresas">
+  <clr-dg-row *clrDgItems="let empresa of empresas">
     <clr-dg-cell>{{ empresa.cnpj }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.razao_social }}</clr-dg-cell>
     <clr-dg-cell>{{ empresa.nome_fantasia }}</clr-dg-cell>
