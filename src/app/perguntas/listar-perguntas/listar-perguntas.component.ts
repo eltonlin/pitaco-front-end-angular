@@ -62,7 +62,7 @@ export class ListarPerguntasComponent implements OnInit {
 
   deletar(res) {
     console.log(res);
-    this.perguntasService.deletarPerguntas(res).subscribe(
+    this.perguntasService.deletarPerguntas(res.id_pergunta).subscribe(
       result => {
         this.sucesso = true;
         setTimeout(() => {

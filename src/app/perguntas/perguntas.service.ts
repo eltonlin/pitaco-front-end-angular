@@ -20,11 +20,11 @@ export class PerguntasService {
     }
 
     atualizar(pergunta: any): Observable<any> {
-        return this.http.put(this.url + '', pergunta);
+        return this.http.put(this.url + 'pergunta/atualizar', pergunta);
     }
 
     deletarPerguntas(pergunta: any): Observable<any> {
-        return this.http.put(this.url + '', pergunta);
+        return this.http.delete(this.url + 'pergunta/deletar/' + pergunta);
     }
 
 }
