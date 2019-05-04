@@ -23,6 +23,7 @@ import { ListarQuestionariosComponent } from './questionario/listar-questionario
 import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 import { EmpresaService } from './empresa/empresa.service';
 import { HomeModule } from './home/home.module';
+import { OpcaoComponent } from './opcao/opcao.component';
 
 @NgModule({
   declarations: [

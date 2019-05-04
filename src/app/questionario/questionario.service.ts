@@ -20,10 +20,11 @@ export class QuestionarioService {
   }
 
   editarQuestionario(res): Observable<any> {
-    return this.http.put(this.url + '', res);
+    return this.http.put(this.url + 'questionario/atualizar', res);
   }
 
   deletarQuestionario(res): Observable<any> {
-    return this.http.put(this.url + '', res);
+    return this.http.put(this.url + 'questionario/deletar/', res);
+    //return this.http.delete(this.url + 'questionario/deletar/' + res);
   }
 }

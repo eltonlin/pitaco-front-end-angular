@@ -14,6 +14,7 @@ import { ListarQuestionariosComponent } from '../questionario/listar-questionari
 import { ListarUsuariosMasterComponent } from '../usuario-master/listar-usuarios-master/listar-usuarios-master.component';
 import { HomeComponent } from './home.component';
 import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
+import { OpcaoComponent } from '../opcao/opcao.component';
 
 const routes: Routes = [
   {
@@ -31,14 +32,15 @@ const routes: Routes = [
       { path: 'listar-perguntas', component: ListarPerguntasComponent },
       { path: 'listar-questionarios', component: ListarQuestionariosComponent },
       { path: 'listar-usuarios-master', component: ListarUsuariosMasterComponent },
-      { path: 'empresa', component: EmpresaComponent},
-      { path: 'questionario-detalhe', component: DetalheQuestionarioComponent}
+      { path: 'empresa', component: EmpresaComponent },
+      { path: 'opcao', component: OpcaoComponent },
+      { path: 'questionario-detalhe', component: DetalheQuestionarioComponent }
     ]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class HomeRoutingModule { }

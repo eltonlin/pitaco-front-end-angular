@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { PerguntasService } from '../perguntas.service';
+import { OpcoesService } from './opcao.service';
 
 @Component({
-  selector: 'app-listar-perguntas',
-  templateUrl: './listar-perguntas.component.html',
-  styleUrls: ['./listar-perguntas.component.css']
+  selector: 'app-opcao',
+  templateUrl: './opcao.component.html',
+  styleUrls: ['./opcao.component.css']
 })
-export class ListarPerguntasComponent implements OnInit {
+export class OpcaoComponent implements OnInit {
 
   constructor(
-    private perguntasService: PerguntasService,
+    private opcoesService: OpcoesService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   id: string;
-  pergunta = {
-    id_pergunta: Number,
-    descricao_pergunta: String,
-    tipo_pergunta: String,
-    id_questionario: Number
-  };
+  opcoes;
+  opcao = {
+    id_opcao: Number,
+    descricao_opcao: String,
+    id_pergunta: Number
+  }
   errorMessage = String;
   sucesso = false;
   erro = false;
   delete = false;
   update = false;
-  perguntas;
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -36,12 +35,12 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   listarPerguntas() {
-    this.perguntasService.listarPergunta(this.id).subscribe(perguntas => this.perguntas = perguntas);
+    this.opcoesService.listarOpcoes(this.id).subscribe(opcoes => this.opcoes = opcoes);
   }
 
   atualizar(res) {
     console.log(res);
-    this.perguntasService.atualizar(res).subscribe(
+    this.opcoesService.atualizar(res).subscribe(
       result => {
         this.sucesso = true;
         setTimeout(() => {
@@ -62,7 +61,7 @@ export class ListarPerguntasComponent implements OnInit {
 
   deletar(res) {
     console.log(res);
-    this.perguntasService.deletarPerguntas(res.id_pergunta).subscribe(
+    this.opcoesService.deletarOpcoes(res.id_opcao).subscribe(
       result => {
         this.sucesso = true;
         setTimeout(() => {
@@ -83,17 +82,13 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   apagar(res) {
-    this.pergunta = res;
+    this.opcao = res;
     this.delete = true;
   }
 
   editar(res) {
-    this.pergunta = res;
+    this.opcao = res;
     this.update = true;
-  }
-
-  opcoes(pergunta) {
-    this.router.navigate(['/home/opcao', { id: pergunta.id_questionario }]);
   }
 
 }

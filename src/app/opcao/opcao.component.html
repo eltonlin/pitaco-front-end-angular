@@ -1,0 +1,56 @@
+<h1>LISTA DE OPÇÕES</h1>
+<clr-datagrid>
+  <clr-dg-placeholder>
+    <clr-icon shape="sad-face" size="30"></clr-icon>
+    Infelizmente não achamos o que você busca
+  </clr-dg-placeholder>
+  <clr-dg-column>ID Opção</clr-dg-column>
+  <clr-dg-column>Descrição</clr-dg-column>
+  <clr-dg-column>ID Pergunta</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let opcao of opcoes">
+    <clr-dg-cell>{{ opcao.id_opcao }}</clr-dg-cell>
+    <clr-dg-cell>{{ opcao.descricao_opcao }}</clr-dg-cell>
+    <clr-dg-cell>{{ opcao.id_pergunta }}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="editar(opcao)">Editar</button>
+      <button class="action-item" (click)="apagar(opcao)">Apagar</button>
+    </clr-dg-action-overflow>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Opções por páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      de {{pagination.totalItems}} Perguntas
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="delete">
+  <h3 class="modal-title">Excluir</h3>
+  <div class="modal-body">
+    <p>Tem certeza que deseja excluir?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="delete = false">Não</button>
+    <button type="button" class="btn btn-primary" (click)="deletar(opcao)">Sim</button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="update">
+  <h3 class="modal-title">Editar</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label>Descrição:</label>
+        <input clrInput type="text" [(ngModel)]="opcao.descricao_opcao" name="descricao_opcao" required />
+        <clr-control-error>A descrição da opção deve ser inserido!</clr-control-error>
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="atualizar(opcao)">Salvar</button>
+  </div>
+</clr-modal>

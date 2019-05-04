@@ -75,7 +75,7 @@ export class ListarQuestionariosComponent implements OnInit {
   }
 
   deletar(res) {
-    console.log(res);
+    console.log(res.id_questionario);
     this.questionarioService.deletarQuestionario(res).subscribe(
       result => {
         this.sucesso = true;
@@ -94,7 +94,7 @@ export class ListarQuestionariosComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
