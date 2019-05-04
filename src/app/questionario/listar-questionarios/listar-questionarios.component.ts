@@ -42,16 +42,6 @@ export class ListarQuestionariosComponent implements OnInit {
     this.router.navigate(['/home/listar-perguntas', { id: questionario.id_questionario }]);
   }
 
-  editar(res) {
-    this.questionario = res;
-    this.update = true;
-  }
-
-  apagar(res) {
-    this.questionario = res;
-    this.delete = true;
-  }
-
   atualizar(res) {
     console.log(res);
     this.questionarioService.editarQuestionario(res).subscribe(
@@ -76,7 +66,7 @@ export class ListarQuestionariosComponent implements OnInit {
 
   deletar(res) {
     console.log(res.id_questionario);
-    this.questionarioService.deletarQuestionario(res).subscribe(
+    this.questionarioService.deletarQuestionario(res.id_questionario).subscribe(
       result => {
         this.sucesso = true;
         setTimeout(() => {
@@ -94,7 +84,17 @@ export class ListarQuestionariosComponent implements OnInit {
       }
     );
     this.delete = false;
-    //window.location.reload();
+    window.location.reload();
+  }
+
+  editar(res) {
+    this.questionario = res;
+    this.update = true;
+  }
+
+  apagar(res) {
+    this.questionario = res;
+    this.delete = true;
   }
 
 }

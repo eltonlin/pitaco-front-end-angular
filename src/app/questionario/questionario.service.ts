@@ -24,7 +24,6 @@ export class QuestionarioService {
   }
 
   deletarQuestionario(res): Observable<any> {
-    return this.http.put(this.url + 'questionario/deletar/', res);
-    //return this.http.delete(this.url + 'questionario/deletar/' + res);
+    return this.http.delete(this.url + 'questionario/deletar/' + res);
   }
 }
