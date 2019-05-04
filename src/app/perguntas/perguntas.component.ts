@@ -10,9 +10,13 @@ export class PerguntasComponent implements OnInit {
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Pitaco Perguntas');
-   }
+  }
 
   ngOnInit() {
+  }
+
+  opcoes(pergunta) {
+    //this.router.navigate(['/home/questionario-detalhe', { id: questionario.id_questionario }]);
   }
 
 }

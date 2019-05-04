@@ -1,29 +1,62 @@
 <clr-datagrid>
-    <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
+  <clr-dg-placeholder>Infelizmente não achamos o que você busca =(</clr-dg-placeholder>
   <clr-dg-column>ID Pergunta</clr-dg-column>
   <clr-dg-column>Descrição
     <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
   </clr-dg-column>
-  <clr-dg-column>Tipo da Pergunta
-    <clr-dg-string-filter [clrDgStringFilter]="myFilter"></clr-dg-string-filter>
-  </clr-dg-column>
-  <clr-dg-column>Questionário relacionado a esta Pergunta</clr-dg-column>
-  
+  <clr-dg-column>Tipo Pergunta</clr-dg-column>
+  <clr-dg-column>ID Questionario</clr-dg-column>
 
-  <clr-dg-row *ngFor="let user of users">
-      <clr-dg-cell></clr-dg-cell>
-      <clr-dg-cell></clr-dg-cell>
-      <clr-dg-action-overflow>
-            <button class="action-item" (click)="onEdit(user)">Editar</button>
-            <button class="action-item" (click)="onDelete(user)">Apagar</button>
-        </clr-dg-action-overflow>
+  <clr-dg-row *clrDgItems="let pergunta of perguntas">
+    <clr-dg-cell>{{ pergunta.id_pergunta }}</clr-dg-cell>
+    <clr-dg-cell>{{ pergunta.descricao_pergunta }}</clr-dg-cell>
+    <clr-dg-cell>{{ pergunta.tipo_pergunta }}</clr-dg-cell>
+    <clr-dg-cell>{{ pergunta.id_questionario }}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="editar(pergunta)">Editar</button>
+      <button class="action-item" (click)="apagar(pergunta)">Apagar</button>
+      <button class="action-item" (click)="opcoes(pergunta)">Opções</button>
+    </clr-dg-action-overflow>
   </clr-dg-row>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
-        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Perguntas por páginas</clr-dg-page-size>
-        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-        de {{pagination.totalItems}} Perguntas
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Perguntas por páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      de {{pagination.totalItems}} Perguntas
     </clr-dg-pagination>
-</clr-dg-footer>
+  </clr-dg-footer>
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="delete">
+  <h3 class="modal-title">Excluir</h3>
+  <div class="modal-body">
+    <p>Tem certeza que deseja excluir?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="delete = false">Não</button>
+    <button type="button" class="btn btn-primary" (click)="deletar(pergunta)">Sim</button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="update">
+  <h3 class="modal-title">Editar</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label>Descrição:</label>
+        <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" name="descricao_pergunta" required />
+        <clr-control-error>A descrição da pergunta deve ser inserido!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Tipo:</label>
+        <input clrInput type="text" [(ngModel)]="pergunta.tipo_pergunta" name="tipo_pergunta" required />
+        <clr-control-error>O tipo de pergunta deve ser inserido!</clr-control-error>
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="atualizar(pergunta)">Salvar</button>
+  </div>
+</clr-modal>
