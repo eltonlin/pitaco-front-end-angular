@@ -22,7 +22,7 @@ export class ListarPerguntasComponent implements OnInit {
     descricao_pergunta: String,
     tipo_pergunta: String,
     id_questionario: Number
-  }
+  };
   errorMessage = String;
   sucesso = false;
   erro = false;
@@ -93,7 +93,7 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   opcoes(pergunta) {
-    //this.router.navigate(['', { id: pergunta.id_questionario }]);
+    // this.router.navigate(['', { id: pergunta.id_questionario }]);
   }
 
 }

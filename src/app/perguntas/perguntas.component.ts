@@ -16,7 +16,7 @@ export class PerguntasComponent implements OnInit {
   }
 
   opcoes(pergunta) {
-    //this.router.navigate(['/home/questionario-detalhe', { id: questionario.id_questionario }]);
+    // this.router.navigate(['/home/questionario-detalhe', { id: questionario.id_questionario }]);
   }
 
 }
