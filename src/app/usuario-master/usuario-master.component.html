@@ -2,7 +2,7 @@
 <form clrForm clrLayout="vertical">
   <clr-input-container>
     <label>Login Usuário</label>
-    <input clrInput type="text" maxlength="30" [(ngModel)]="usuarioMaster" name="usuarioMaster" required />
+    <input clrInput type="text" maxlength="30" pattern="[A-Za-z]{30}" [(ngModel)]="usuarioMaster" name="usuarioMaster" required />
     <clr-control-error>O Usuário Master deve ser inserido!</clr-control-error>
   </clr-input-container>
   <span class="clr-subtext">Login do usuário pode ter no máximo 30 caracteres.</span>

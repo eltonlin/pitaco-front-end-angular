@@ -1,7 +1,7 @@
 <div class="main-container">
     <header class="header-4">
         <div class="branding">
-            <a [routerLink]="[{ outlets: { main: ['apresentacao'] } }]" class="nav-link">
+            <a [routerLink]="['apresentacao']" class="nav-link">
             <!-- <a routerLink="/apresentacao" class="nav-link"> -->
                 <clr-icon shape="home" class="home-icon"></clr-icon>
                 <span class="title">Pitaco</span>
@@ -27,9 +27,9 @@
                     <clr-icon shape="caret down" size="15"></clr-icon>
                 </button>
                 <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                    <a href="..." clrDropdownItem>Perfil</a>
+                    <!-- <a href="..." clrDropdownItem>Perfil</a>
                     <a href="..." clrDropdownItem>Editar Perfil</a>
-                    <a href="..." clrDropdownItem>Configurações</a>
+                    <a href="..." clrDropdownItem>Configurações</a> -->
                     <a [routerLink]="['/login']" clrDropdownItem>Sair</a>
                 </clr-dropdown-menu>
             </clr-dropdown>
