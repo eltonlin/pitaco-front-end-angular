@@ -1,1 +1,9 @@
-{{ id }}
+<h1> Perguntas do questionário {{ questionario }} </h1>
+
+<div *ngFor="let pergunta of perguntas">
+  <h6>{{ pergunta.descricao_pergunta }}</h6>
+  <ul>
+    <li *ngFor="let opcoes of pergunta.opcoes"> {{ opcoes.descricao_opcao }} - Pessoas que responderam: {{ opcoes.quantidade.quantidade }} </li>
+  </ul>
+</div>
+
