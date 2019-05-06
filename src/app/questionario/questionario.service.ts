@@ -26,4 +26,12 @@ export class QuestionarioService {
   deletarQuestionario(res): Observable<any> {
     return this.http.delete(this.url + 'questionario/deletar/' + res);
   }
+
+  consultarPerguntasDoQuestionario(id: string): Observable<any> {
+    return this.http.get(this.url + `pergunta/${id}`);
+  }
+
+  consultarQuantidadeRespostasPorQuestionario(idQuestionario: string): Observable<any> {
+    return this.http.get(this.url + `resposta/quantidade_por_questionario/${idQuestionario}`);
+  }
 }

@@ -15,7 +15,7 @@
           </clr-textarea-container>
           <clr-input-container>
             <label>Pontuação do Questionario</label>
-            <input clrInput type="number" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario" required />
+            <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario" required />
             <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
           </clr-input-container>
           <clr-select-container>

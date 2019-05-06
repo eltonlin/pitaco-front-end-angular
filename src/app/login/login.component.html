@@ -8,11 +8,11 @@
     <div class="login-group">
       <clr-input-container>
         <label>Usuário</label>
-        <input type="text" name="login" clrInput placeholder="Nome do Usuário" [(ngModel)]="usuarioMaster.login_master" />
+        <input type="text" name="login" maxlength="50" clrInput placeholder="Nome do Usuário" [(ngModel)]="usuarioMaster.login_master" />
       </clr-input-container>
       <clr-password-container>
         <label>Senha</label>
-        <input type="password" name="password" clrPassword placeholder="Senha" [(ngModel)]="usuarioMaster.senha" />
+        <input type="password" name="password" maxlength="10" clrPassword placeholder="Senha" [(ngModel)]="usuarioMaster.senha" />
       </clr-password-container>
       <div *ngIf="error" class="error active">
         {{ error }}
