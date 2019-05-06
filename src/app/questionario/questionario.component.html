@@ -38,9 +38,9 @@
             </div>
             <div class="card-block">
               <clr-input-container>
-                <label>Pontuação do Questionario</label>
-                <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" name="descricaoPergunta" required />
-                <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
+                <label>Descrição</label>
+                <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" minlength="5" maxlength="500" name="descricaoPergunta" required />
+                <clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error>
               </clr-input-container>
               <clr-select-container>
                 <label>Tipo de pergunta</label>
@@ -57,7 +57,7 @@
                   <div *ngFor="let opcao of pergunta.opcoes">
                     <clr-input-container>
                       <label>Descrição</label>
-                      <input clrInput type="text" [(ngModel)]="opcao.descricao_opcao" name="descricaoOpcao" required />
+                      <input clrInput type="text" [(ngModel)]="opcao.descricao_opcao" minlength="5" maxlength="500" name="descricaoOpcao" required />
                       <clr-control-error>A descrição da opção deve ser inserida</clr-control-error>
                     </clr-input-container>
                   </div>
