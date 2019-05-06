@@ -24,7 +24,7 @@ export class QuestionarioComponent implements OnInit {
 
 
   questionario = {
-    descricao_questionario: '123',
+    descricao_questionario: '',
     empresa_cnpj: '',
     pontuacao_questionario: '',
     login_master: localStorage.getItem('login_master'),

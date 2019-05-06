@@ -19,6 +19,9 @@
                         <input id="search_input" type="text" placeholder="  Pesquisar">
                     </label>
             </form>     -->
+        <!-- <div class="header-nav">
+                <a href="..." class="nav-link nav-text">BEM VINDO AO SISTEMA PITACO</a>
+            </div>   -->
         <div class="header-actions">
             <clr-dropdown>
                 <button class="nav-text" clrDropdownTrigger>
@@ -27,9 +30,9 @@
                     <clr-icon shape="caret down" size="15"></clr-icon>
                 </button>
                 <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                    <a href="..." clrDropdownItem>Perfil</a>
+                    <!-- <a href="..." clrDropdownItem>Perfil</a>
                     <a href="..." clrDropdownItem>Editar Perfil</a>
-                    <a href="..." clrDropdownItem>Configurações</a>
+                    <a href="..." clrDropdownItem>Configurações</a> -->
                     <a [routerLink]="['/login']" clrDropdownItem>Sair</a>
                 </clr-dropdown-menu>
             </clr-dropdown>
