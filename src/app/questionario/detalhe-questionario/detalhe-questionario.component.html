@@ -1,9 +1,36 @@
 <h1> Perguntas do questionário {{ questionario }} </h1>
 
+<clr-input-container>
+  <label>Idade Inicial</label>
+  <input clrInput type="text" maxlength="20" [(ngModel)]="params.idadeInicial" name="dataInicial"  />
+</clr-input-container>
+
+<clr-input-container>
+  <label>Idade Final</label>
+  <input clrInput type="text" maxlength="20" [(ngModel)]="params.idadeFinal" name="dataFinal"  />
+</clr-input-container>
+
+<clr-select-container>
+  <label>Estados</label>
+  <select clrSelect name="estado" [ngModel]="params.estado" (ngModelChange)="onChange($event)">
+    <option *ngFor="let estado of estados?.estados" [value]="estado.id">{{ estado.estado }}</option>
+  </select>
+</clr-select-container>
+
+<clr-select-container>
+  <label>Cidades</label>
+  <select clrSelect name="cidade" [(ngModel)]="params.cidade">
+    <option *ngFor="let cidade of cidades?.cidades" [value]="cidade.cidade">{{ cidade.cidade }}</option>
+  </select>
+</clr-select-container>
+
+<button (click)="limpar()" class="btn">Limpar</button>
+<button (click)="pesquisar()" class="btn">Filtrar</button>
+
 <div *ngFor="let pergunta of perguntas">
   <h6>{{ pergunta.descricao_pergunta }}</h6>
   <ul>
-    <li *ngFor="let opcoes of pergunta.opcoes"> {{ opcoes.descricao_opcao }} - Pessoas que responderam: {{ opcoes.quantidade.quantidade }} </li>
+    <li *ngFor="let opcoes of pergunta.opcoes"> {{ opcoes.descricao_opcao }} - Pessoas que responderam: {{ opcoes.quantidade }} </li>
   </ul>
 </div>
 

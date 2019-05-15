@@ -20,12 +20,38 @@ export class DetalheQuestionarioComponent implements OnInit {
   questionario: string;
   perguntas: any;
   quantidadeRespostas: any;
+  params = { idadeInicial: '', idadeFinal: '', estado: '', cidade: ''};
+  estados: any;
+  cidades: any;
+
+
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.questionario = this.route.snapshot.paramMap.get('questionario');
-    this.questionarioService.consultarPerguntasDoQuestionario(this.id)
+    this.questionarioService.consultarPerguntasDoQuestionario(this.id, this.params)
       .subscribe(pergunta => this.perguntas = pergunta);
+
+    this.questionarioService.retornarEstados().subscribe(estados =>  this.estados = estados);
+
+  }
+
+  pesquisar() {
+    this.questionarioService.consultarPerguntasDoQuestionario(this.id, this.params)
+      .subscribe(pergunta => this.perguntas = pergunta);
+  }
+
+  limpar() {
+    this.params.estado = '';
+    this.params.cidade = '';
+    this.params.idadeFinal = '';
+    this.params.idadeInicial = '';
+  }
+
+  onChange(estado) {
+    this.params.estado = estado;
+    this.questionarioService.retornaCidades(this.params.estado)
+    .subscribe(cidades => this.cidades = cidades);
 
   }
 

@@ -21,7 +21,7 @@ export class ListarQuestionariosComponent implements OnInit {
     login_master: String,
     razao_social: String,
     interesse_descricao: String
-  }
+  };
   errorMessage = String;
   sucesso = false;
   erro = false;
