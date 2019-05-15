@@ -17,11 +17,12 @@ export class ListarUsuariosMasterComponent implements OnInit {
     faixa_salarial: Number,
     pontuacao: Number,
     data_nascimento: Date
-  }
+  };
   delete = false;
   update = false;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(
+    private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     this.listarUsuarios();
