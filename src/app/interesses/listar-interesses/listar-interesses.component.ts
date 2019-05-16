@@ -57,6 +57,7 @@ export class ListarInteressesComponent implements OnInit {
     this.interesseService.deletarInteresses(res).subscribe(
       result => {
         this.sucesso = true;
+        window.location.reload();
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -71,7 +72,7 @@ export class ListarInteressesComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
+
   }
 
   apagar(res) {
