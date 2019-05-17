@@ -19,6 +19,7 @@ import { HomeComponent } from './home.component';
 import { ClarityModule } from '@clr/angular';
 import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
 import { OpcaoComponent } from '../opcao/opcao.component';
+import { ListarSolicitacaoPagamentoComponent } from '../usuario-master/listar-solicitacao-pagamento/listar-solicitacao-pagamento.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { OpcaoComponent } from '../opcao/opcao.component';
     ListarUsuariosMasterComponent,
     DetalheQuestionarioComponent,
     HomeComponent,
-    OpcaoComponent
+    OpcaoComponent,
+    ListarSolicitacaoPagamentoComponent
   ],
   imports: [
     CommonModule,

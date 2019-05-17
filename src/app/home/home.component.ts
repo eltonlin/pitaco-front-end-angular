@@ -10,8 +10,8 @@ export class HomeComponent implements OnInit {
 
   usuarioNome: string;
 
-  constructor(private titleService:Title) {
-    this.titleService.setTitle("Pitaco Inicial");
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Pitaco Inicial');
    }
 
   ngOnInit() {

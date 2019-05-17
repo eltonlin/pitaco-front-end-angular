@@ -1,0 +1,36 @@
+<h1>Lista de Solicitações por Usuários</h1>
+<clr-datagrid>
+  <clr-dg-placeholder><clr-icon shape="sad-face" size="30"></clr-icon>
+    Infelizmente não achamos o que você busca</clr-dg-placeholder>
+  <clr-dg-column [clrDgField]="'id_solicitacao'">ID da Solicitação</clr-dg-column>
+  <clr-dg-column [clrDgField]="'usuario_final'">Usuário que pediu</clr-dg-column>
+  <clr-dg-column [clrDgField]="'banco'">Banco</clr-dg-column>
+  <clr-dg-column [clrDgField]="'tipo_conta'">Tipo da Conta</clr-dg-column>
+  <clr-dg-column [clrDgField]="'agencia'">Agência</clr-dg-column>
+  <clr-dg-column [clrDgField]="'conta'">Conta</clr-dg-column>
+  <clr-dg-column [clrDgField]="'valor'">Valor</clr-dg-column>
+  <clr-dg-column [clrDgField]="'pago'">Pago?</clr-dg-column>
+  
+  <clr-dg-row *clrDgItems="let solicitacao of solicitacoes">
+    <clr-dg-cell>{{ solicita_pagamento.id_solicitacao }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.usuario_final }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.banco }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.tipo_conta }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.agencia }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.conta }}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.valor}}</clr-dg-cell>
+    <clr-dg-cell>{{ solicita_pagamento.pago }}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="editar(solicitacao)">Editar</button>
+      <button class="action-item" (click)="apagar(solicitcao)">Apagar</button>
+    </clr-dg-action-overflow>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Solicitações Por Páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      de {{pagination.totalItems}} Solicitações
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

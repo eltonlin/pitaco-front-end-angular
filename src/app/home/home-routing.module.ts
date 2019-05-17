@@ -15,6 +15,7 @@ import { ListarUsuariosMasterComponent } from '../usuario-master/listar-usuarios
 import { HomeComponent } from './home.component';
 import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
 import { OpcaoComponent } from '../opcao/opcao.component';
+import { ListarSolicitacaoPagamentoComponent } from '../usuario-master/listar-solicitacao-pagamento/listar-solicitacao-pagamento.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: 'listar-usuarios-master', component: ListarUsuariosMasterComponent },
       { path: 'empresa', component: EmpresaComponent },
       { path: 'opcao', component: OpcaoComponent },
-      { path: 'questionario-detalhe', component: DetalheQuestionarioComponent }
+      { path: 'questionario-detalhe', component: DetalheQuestionarioComponent },
+      { path: 'listar-solicitacao-pagamento', component: ListarSolicitacaoPagamentoComponent }
     ]
   }
 ];
