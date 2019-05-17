@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class InteressesService {
 
-  url = 'http://localhost:3000/';
+  url = 'https://nameless-island-83115.herokuapp.com/';
 
   constructor(public http: HttpClient) { }
 

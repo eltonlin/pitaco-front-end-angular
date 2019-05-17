@@ -9,7 +9,7 @@ export class QuestionarioService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/';
+  url = 'https://nameless-island-83115.herokuapp.com/';
 
   cadastrarQuestionario(questionario: any): Observable<any> {
     return this.http.post(this.url + 'questionario', questionario);

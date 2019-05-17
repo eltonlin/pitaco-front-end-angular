@@ -93,7 +93,7 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   opcoes(pergunta) {
-    this.router.navigate(['/home/opcao', { id: pergunta.id_questionario }]);
+    this.router.navigate(['/home/opcao', { id: pergunta.id_pergunta }]);
   }
 
 }

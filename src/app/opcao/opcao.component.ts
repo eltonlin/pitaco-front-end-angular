@@ -35,7 +35,7 @@ export class OpcaoComponent implements OnInit {
   }
 
   listarPerguntas() {
-    this.opcoesService.listarOpcoes(this.id).subscribe(opcoes => this.opcoes = opcoes);
+    this.opcoesService.listarOpcoes(this.id).subscribe(opcoes =>{console.log(opcoes); this.opcoes = opcoes; });
   }
 
   atualizar(res) {
