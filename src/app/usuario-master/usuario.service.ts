@@ -8,7 +8,7 @@ import { UsuarioMaster } from './../login/usuarioMaster';
 })
 export class UsuarioService {
 
-  url = 'https://nameless-island-83115.herokuapp.com/';
+  url = 'https://fast-ocean-23649.herokuapp.com/';
 
   constructor(public http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Empresas } from './empresas';
   providedIn: 'root'
 })
 export class EmpresaService {
-  url = 'https://nameless-island-83115.herokuapp.com/';
+  url = 'https://fast-ocean-23649.herokuapp.com/';
 
   constructor(public http: HttpClient) { }
 
