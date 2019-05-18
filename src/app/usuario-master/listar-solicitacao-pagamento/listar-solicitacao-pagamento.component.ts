@@ -14,6 +14,8 @@ export class ListarSolicitacaoPagamentoComponent implements OnInit {
     private usuarioService: UsuarioService,
   ) { }
 
+  solicitacoes: any;
+
   ngOnInit() {
   }
 
