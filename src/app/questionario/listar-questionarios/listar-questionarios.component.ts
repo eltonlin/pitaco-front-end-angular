@@ -70,6 +70,7 @@ export class ListarQuestionariosComponent implements OnInit {
     this.questionarioService.deletarQuestionario(res.id_questionario).subscribe(
       result => {
         this.sucesso = true;
+        this.questionarios = this.questionarios.filter(questionario => questionario.id_questionario !== res.id_questionario);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -85,7 +86,6 @@ export class ListarQuestionariosComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
   }
 
   editar(res) {

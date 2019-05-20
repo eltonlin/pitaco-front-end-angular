@@ -35,7 +35,7 @@ export class OpcaoComponent implements OnInit {
   }
 
   listarPerguntas() {
-    this.opcoesService.listarOpcoes(this.id).subscribe(opcoes =>{console.log(opcoes); this.opcoes = opcoes; });
+    this.opcoesService.listarOpcoes(this.id).subscribe(opcoes =>  this.opcoes = opcoes);
   }
 
   atualizar(res) {
@@ -64,6 +64,7 @@ export class OpcaoComponent implements OnInit {
     this.opcoesService.deletarOpcoes(res.id_opcao).subscribe(
       result => {
         this.sucesso = true;
+        this.opcoes = this.opcoes.filter(opcao => opcao.id_opcao !== res.id_opcao);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -78,7 +79,6 @@ export class OpcaoComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
   }
 
   apagar(res) {

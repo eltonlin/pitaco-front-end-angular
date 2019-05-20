@@ -59,6 +59,7 @@ export class ListarEmpresasComponent implements OnInit {
     this.empresaService.deletar(res).subscribe(
       result => {
         this.sucesso = true;
+        this.empresas = this.empresas.filter(empresa => empresa.cnpj !== res.cnpj);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -74,7 +75,6 @@ export class ListarEmpresasComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
   }
 
   apagar(res) {

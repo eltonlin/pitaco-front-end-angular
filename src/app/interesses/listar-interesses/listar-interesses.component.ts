@@ -15,7 +15,7 @@ export class ListarInteressesComponent implements OnInit {
     private router: Router
   ) { }
 
-  interesses: Interesses;
+  interesses: Interesses[];
   interesse: Interesses = new Interesses();
   errorMessage = String;
   sucesso = false;
@@ -57,7 +57,7 @@ export class ListarInteressesComponent implements OnInit {
     this.interesseService.deletarInteresses(res).subscribe(
       result => {
         this.sucesso = true;
-        window.location.reload();
+        this.interesses = this.interesses.filter(interesse => interesse.id_interesse !== res.id_interesse);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);

@@ -10,7 +10,7 @@
   <clr-dg-column [clrDgField]="'conta'">Conta</clr-dg-column>
   <clr-dg-column [clrDgField]="'valor'">Valor</clr-dg-column>
   <clr-dg-column [clrDgField]="'pago'">Pago?</clr-dg-column>
-  
+
   <clr-dg-row *clrDgItems="let solicitacao of solicitacoes">
     <clr-dg-cell>{{ solicitacao.id_solicitacao }}</clr-dg-cell>
     <clr-dg-cell>{{ solicitacao.usuario_final }}</clr-dg-cell>
@@ -21,7 +21,7 @@
     <clr-dg-cell>{{ solicitacao.valor}}</clr-dg-cell>
     <clr-dg-cell>{{ solicitacao.pago }}</clr-dg-cell>
     <clr-dg-action-overflow>
-      <button class="action-item" (click)="confirmar(confirmarPagamento)">Confirmar Pagamento</button>
+      <button class="action-item" (click)="openModal(solicitacao)">Confirmar Pagamento</button>
     </clr-dg-action-overflow>
   </clr-dg-row>
 
@@ -41,6 +41,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="confirmar = false">Não</button>
-    <button type="button" class="btn btn-primary" (click)="confirmar(confirmarPagamento)">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="confirmarPagamento()">Sim</button>
   </div>
 </clr-modal>

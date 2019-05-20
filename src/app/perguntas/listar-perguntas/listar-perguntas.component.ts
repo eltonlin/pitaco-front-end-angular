@@ -65,6 +65,7 @@ export class ListarPerguntasComponent implements OnInit {
     this.perguntasService.deletarPerguntas(res.id_pergunta).subscribe(
       result => {
         this.sucesso = true;
+        this.perguntas = this.perguntas.filter(pergunta => pergunta.id_pergunta !== res.id_pergunta);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -79,7 +80,6 @@ export class ListarPerguntasComponent implements OnInit {
       }
     );
     this.delete = false;
-    window.location.reload();
   }
 
   apagar(res) {

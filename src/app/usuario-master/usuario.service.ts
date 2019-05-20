@@ -23,4 +23,8 @@ export class UsuarioService {
   cadastrarUsuario(usuarioMaster: UsuarioMaster): Observable<any> {
     return this.http.post(this.url + 'usuario_master', usuarioMaster);
   }
+
+  atualizarSolicitacaoParaPaga(solicitacao: any): Observable<any> {
+    return this.http.put(this.url + 'solicita_pagamento/atualizar', solicitacao);
+  }
 }
