@@ -10,13 +10,27 @@ import { UsuarioService } from '../usuario.service';
 })
 export class ListarSolicitacaoPagamentoComponent implements OnInit {
 
-  constructor(
+  solicitacoes: any;
+
+  confirmar = false;
+
+constructor(
     private usuarioService: UsuarioService,
   ) { }
 
-  solicitacoes: any;
 
-  ngOnInit() {
+ngOnInit() {
+    this.listarSolicitacoesNaoPAGAS();
+
   }
 
+listarSolicitacoesNaoPAGAS() {
+    this.usuarioService.listarSolicitacoesNaoPAGAS().subscribe(solicitacao => this.solicitacoes = solicitacao);
+
+  }
+
+confirmarPagamento(res) {
+    this.solicitacoes = res;
+    this.confirmar = true;
+  }
 }
