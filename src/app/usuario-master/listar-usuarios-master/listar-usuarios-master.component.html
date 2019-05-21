@@ -1,7 +1,8 @@
 <h1>Lista de Usuários Finais</h1>
 <clr-datagrid>
-    <clr-dg-placeholder><clr-icon shape="sad-face" size="30"></clr-icon>
-      Infelizmente não achamos o que você busca</clr-dg-placeholder>
+  <clr-dg-placeholder>
+    <clr-icon shape="sad-face" size="30"></clr-icon>
+    Infelizmente não achamos o que você busca</clr-dg-placeholder>
   <clr-dg-column [clrDgField]="'login_usuario'">Usuários</clr-dg-column>
   <clr-dg-column [clrDgField]="'nome'">Nome</clr-dg-column>
   <clr-dg-column [clrDgField]="'cpf'">Cpf</clr-dg-column>
@@ -10,25 +11,20 @@
   <clr-dg-column [clrDgField]="'data_nascimento'">Data de Nascimento</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
-      <clr-dg-cell>{{ user.login_usuario }}</clr-dg-cell>
-      <clr-dg-cell>{{ user.nome }}</clr-dg-cell>
-      <clr-dg-cell>{{ user.cpf }}</clr-dg-cell>
-      <clr-dg-cell>{{ user.faixa_salarial }}</clr-dg-cell>
-      <clr-dg-cell>{{ user.pontuacao }}</clr-dg-cell>
-      <clr-dg-cell>{{ user.data_nascimento }}</clr-dg-cell>
-      <clr-dg-action-overflow>
-        <button class="action-item" (click)="updateFunc(user)">Editar</button>
-        <button class="action-item" (click)="apagar(user)">Apagar</button>
-    </clr-dg-action-overflow>
+    <clr-dg-cell>{{ user.login_usuario }}</clr-dg-cell>
+    <clr-dg-cell>{{ user.nome }}</clr-dg-cell>
+    <clr-dg-cell>{{ user.cpf }}</clr-dg-cell>
+    <clr-dg-cell>{{ user.faixa_salarial }}</clr-dg-cell>
+    <clr-dg-cell>{{ user.pontuacao }}</clr-dg-cell>
+    <clr-dg-cell>{{ user.data_nascimento }}</clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
-        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Usuários por páginas</clr-dg-page-size>
-        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-        de {{pagination.totalItems}} Usuários
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Usuários por páginas</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} de {{pagination.totalItems}} Usuários
     </clr-dg-pagination>
-</clr-dg-footer>
+  </clr-dg-footer>
 </clr-datagrid>
 
 <clr-modal [(clrModalOpen)]="delete">
