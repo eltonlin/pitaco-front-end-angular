@@ -96,4 +96,11 @@ export class QuestionarioComponent implements OnInit {
     });
   }
 
+  removerOpcao(pergunta: any, i: number) {
+    pergunta.opcoes.splice(i, 1);
+  }
+
+  removerPergunta(questionario: any, i: number) {
+    questionario.perguntas.splice(i, 1);
+  }
 }

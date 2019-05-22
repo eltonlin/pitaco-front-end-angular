@@ -9,13 +9,15 @@
       </div>
       <div class="card-block">
         <form clrForm clrLayout="vertical">
-          <clr-textarea-container>
+          <clr-input-container>
             <label>Descrição do Questionário</label>
-            <textarea clrTextarea rows="4" placeholder="descrição" name="descricao1" [(ngModel)]="questionario.descricao_questionario"></textarea>
-          </clr-textarea-container>
+            <input clrInput type="text" size=100% name="descricao1" minlength="2" maxlength="500" [(ngModel)]="questionario.descricao_questionario" />
+            <clr-control-error>A descrição do questionário deve ser inserida!</clr-control-error>
+          </clr-input-container>
           <clr-input-container>
             <label>Pontuação do Questionario</label>
-            <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario" required />
+            <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario"
+              required />
             <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
           </clr-input-container>
           <clr-select-container>
@@ -31,39 +33,63 @@
             </select>
           </clr-select-container>
         </form>
-        <div *ngFor="let pergunta of questionario.perguntas">
+        <div *ngFor="let pergunta of questionario.perguntas; let i = index">
           <div class="card">
             <div class="card-header">
-              Pergunta
+              <div class="clr-row">
+                <div class="clr-col-11">
+                  Pergunta
+                </div>
+                <div class="clr-col-1 clr-align-self-end">
+                  <button *ngIf="i !== 0" class="btn" (click)="removerPergunta(questionario, i)">
+                    <clr-icon shape="window-close"></clr-icon>
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="card-block">
-              <clr-input-container>
-                <label>Descrição</label>
-                <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" minlength="5" maxlength="500" name="descricaoPergunta" required />
-                <clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error>
-              </clr-input-container>
-              <clr-select-container>
-                <label>Tipo de pergunta</label>
-                <select clrSelect name="optionsTipoPergunta" [(ngModel)]="pergunta.tipo_pergunta">
-                  <option value="M">Múltipla Escolha</option>
-                  <option value="C">Caixa de Seleção</option>
-                </select>
-              </clr-select-container>
+              <form clrForm clrLayout="vertical">
+                <clr-input-container>
+                  <label>Descrição</label>
+                  <input clrInput type="text" size=100% [(ngModel)]="pergunta.descricao_pergunta" minlength="2" maxlength="500" name="descricaoPergunta"
+                    required />
+                  <clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error>
+                </clr-input-container>
+                <clr-select-container>
+                  <label>Tipo de pergunta</label>
+                  <select clrSelect name="optionsTipoPergunta" [(ngModel)]="pergunta.tipo_pergunta">
+                    <option value="M">Múltipla Escolha</option>
+                    <option value="C">Caixa de Seleção</option>
+                  </select>
+                </clr-select-container>
+              </form>
               <div class="card">
                 <div class="card-header">
-                  Respostas
+                  Opções
                 </div>
                 <div class="card-block">
-                  <div *ngFor="let opcao of pergunta.opcoes">
-                    <clr-input-container>
-                      <label>Descrição</label>
-                      <input clrInput type="text" [(ngModel)]="opcao.descricao_opcao" minlength="5" maxlength="500" name="descricaoOpcao" required />
-                      <clr-control-error>A descrição da opção deve ser inserida</clr-control-error>
-                    </clr-input-container>
+                  <div *ngFor="let opcao of pergunta.opcoes; let i = index">
+                    <div class="clr-row">
+                      <div class="clr-col-11">
+                        <form clrForm clrLayout="vertical">
+                          <clr-input-container>
+                            <label>Descrição</label>
+                            <input clrInput type="text" size=100% [(ngModel)]="opcao.descricao_opcao" minlength="2" maxlength="500" name="descricaoOpcao"
+                              required />
+                            <clr-control-error>A descrição da opção deve ser inserida</clr-control-error>
+                          </clr-input-container>
+                        </form>
+                      </div>
+                      <div class="clr-col-1 clr-align-self-end">
+                        <button *ngIf="i !== 0" class="btn" (click)="removerOpcao(pergunta, i)">
+                          <clr-icon shape="window-close"></clr-icon>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-info-outline" (click)="adicionarOpcao(pergunta)">Adicionar Respotas</button>
+                  <button class="btn btn-info-outline" (click)="adicionarOpcao(pergunta)">Adicionar Opção</button>
                 </div>
               </div>
             </div>
@@ -78,22 +104,22 @@
   </div>
 </div>
 <div *ngIf="sucesso" class="alert alert-success" role="alert">
-    <div class="alert-items">
-        <div class="alert-item static">
-            <div class="alert-icon-wrapper">
-                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
-            </div>
-            <span class="alert-text">{{ messageCadastrar }}</span>
-        </div>
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ messageCadastrar }}</span>
     </div>
   </div>
-  <div *ngIf="erro" class="alert alert-danger" role="alert">
-    <div class="alert-items">
-        <div class="alert-item static">
-            <div class="alert-icon-wrapper">
-                <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
-            </div>
-            <span class="alert-text">{{ messageCadastrar }} </span>
-        </div>
+</div>
+<div *ngIf="erro" class="alert alert-danger" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ messageCadastrar }} </span>
     </div>
   </div>
+</div>
