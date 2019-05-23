@@ -16,7 +16,7 @@ export class ListarInteressesComponent implements OnInit {
   ) { }
 
   interesses: Interesses[];
-  interesse: Interesses = new Interesses();
+  interesseParaAtualizar: Interesses = new Interesses();
   errorMessage = String;
   sucesso = false;
   erro = false;
@@ -31,11 +31,15 @@ export class ListarInteressesComponent implements OnInit {
     this.interesseService.listarInteresses().subscribe(interesses => this.interesses = interesses);
   }
 
-  atualizar(res) {
-    console.log(res);
-    this.interesseService.atualizar(res).subscribe(
+  atualizar() {
+    this.interesseService.atualizar(this.interesseParaAtualizar).subscribe(
       result => {
         this.sucesso = true;
+        this.interesses.filter(interesse => {
+          if ( this.interesseParaAtualizar.id_interesse === interesse.id_interesse ) {
+            interesse.descricao = this.interesseParaAtualizar.descricao;
+          }
+        });
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -52,12 +56,11 @@ export class ListarInteressesComponent implements OnInit {
     this.update = false;
   }
 
-  deletar(res) {
-    console.log(res);
-    this.interesseService.deletarInteresses(res).subscribe(
+  deletar() {
+    this.interesseService.deletarInteresses(this.interesseParaAtualizar).subscribe(
       result => {
         this.sucesso = true;
-        this.interesses = this.interesses.filter(interesse => interesse.id_interesse !== res.id_interesse);
+        this.interesses = this.interesses.filter(interesse => interesse.id_interesse !== this.interesseParaAtualizar.id_interesse);
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -75,13 +78,15 @@ export class ListarInteressesComponent implements OnInit {
 
   }
 
-  apagar(res) {
-    this.interesse = res;
+  apagar(interesse: Interesses) {
+    this.interesseParaAtualizar.id_interesse = interesse.id_interesse;
+    this.interesseParaAtualizar.descricao = interesse.descricao;
     this.delete = true;
   }
 
-  updateFunc(res) {
-    this.interesse = res;
+  updateFunc(interesse: Interesses) {
+    this.interesseParaAtualizar.id_interesse = interesse.id_interesse;
+    this.interesseParaAtualizar.descricao = interesse.descricao;
     this.update = true;
   }
 

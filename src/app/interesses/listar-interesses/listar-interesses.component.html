@@ -31,7 +31,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="delete = false">Não</button>
-    <button type="button" class="btn btn-primary" (click)="deletar(interesse)">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="deletar()">Sim</button>
   </div>
 </clr-modal>
 
@@ -41,14 +41,14 @@
     <form clrForm>
       <clr-input-container>
         <label>Interesse:</label>
-        <input clrInput type="text" [(ngModel)]="interesse.descricao" name="descInteresse" required />
+        <input clrInput type="text" [(ngModel)]="interesseParaAtualizar.descricao" name="descInteresse" required />
         <clr-control-error>O Interesse deve ser inserido!</clr-control-error>
       </clr-input-container>
     </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="update = false">Cancelar</button>
-    <button type="button" class="btn btn-primary" (click)="atualizar(interesse)">Salvar</button>
+    <button type="button" class="btn btn-primary" (click)="atualizar()">Salvar</button>
   </div>
 </clr-modal>
 <div *ngIf="erro" class="alert alert-danger" role="alert">
