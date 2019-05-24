@@ -61,12 +61,12 @@
           required />
         <clr-control-error>A pontuação deve ser inserido!</clr-control-error>
       </clr-input-container>
-      <clr-input-container>
-        <label>Interesse:</label>
-        <input clrInput type="text" [(ngModel)]="questionario.interesse_descricao" name="interesse_descricao"
-          required />
-        <clr-control-error>O interesse deve ser inserido!</clr-control-error>
-      </clr-input-container>
+      <clr-select-container>
+        <label>Interesse</label>
+        <select clrSelect name="optionsInteresse" [ngModel]="questionario.id_interesse" (ngModelChange)="onChange($event)">
+          <option *ngFor="let interesse of interesses" [value]="interesse.id_interesse">{{ interesse.descricao }}</option>
+        </select>
+      </clr-select-container>
     </form>
   </div>
   <div class="modal-footer">

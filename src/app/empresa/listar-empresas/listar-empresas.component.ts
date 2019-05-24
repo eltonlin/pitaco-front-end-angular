@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from '../empresa.service';
+import { Empresas } from '../empresas';
 
 @Component({
   selector: 'app-listar-empresas',
@@ -10,13 +11,8 @@ export class ListarEmpresasComponent implements OnInit {
 
   constructor(private empresaService: EmpresaService) { }
 
-  empresas: any;
-  empresa = {
-    razao_social: String,
-    nome_fantasia: String,
-    cnpj: String,
-    login_master: String,
-  }
+  empresas: Empresas[];
+  empresa: Empresas = new Empresas();
   erro = false;
   sucesso = false;
   errorMessage: string;
@@ -35,8 +31,14 @@ export class ListarEmpresasComponent implements OnInit {
   atualizarEmpresa(res) {
     console.log(res);
     this.empresaService.atualizar(res).subscribe(
-      result => {
+      () => {
         this.sucesso = true;
+        this.empresas = this.empresas.filter(empresa => {
+          if (empresa.cnpj === res.cnpj ) {
+            empresa.razao_social = res.razao_social;
+            empresa.nome_fantasia = res.nome_fantasia;
+          }
+        });
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
@@ -57,7 +59,7 @@ export class ListarEmpresasComponent implements OnInit {
   deletar(res) {
     console.log(res);
     this.empresaService.deletar(res).subscribe(
-      result => {
+      () => {
         this.sucesso = true;
         this.empresas = this.empresas.filter(empresa => empresa.cnpj !== res.cnpj);
         setTimeout(() => {
@@ -77,14 +79,21 @@ export class ListarEmpresasComponent implements OnInit {
     this.delete = false;
   }
 
-  apagar(res) {
-    this.empresa = res;
+  apagar(empresa) {
+    this.setEmpresa(empresa);
     this.delete = true;
   }
 
-  updateFunc(res) {
-    this.empresa = res;
+  updateFunc(empresa) {
+    this.setEmpresa(empresa);
     this.update = true;
+  }
+
+  setEmpresa(empresa) {
+    this.empresa.cnpj = empresa.cnpj;
+    this.empresa.login_master = empresa.login_master;
+    this.empresa.nome_fantasia = empresa.nome_fantasia;
+    this.empresa.razao_social = empresa.razao_social;
   }
 
 }
