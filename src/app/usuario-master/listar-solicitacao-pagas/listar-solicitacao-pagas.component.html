@@ -9,7 +9,7 @@
   <clr-dg-column [clrDgField]="'agencia'">Agência</clr-dg-column>
   <clr-dg-column [clrDgField]="'conta'">Conta</clr-dg-column>
   <clr-dg-column [clrDgField]="'valor'">Valor</clr-dg-column>
-  <clr-dg-column [clrDgField]="'data_solicitacao'">Data de Solicitação</clr-dg-column>
+  <clr-dg-column [clrDgField]="'data_pagamento'">Data de Pagamento</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let solicitacao of solicitacoes">
     <clr-dg-cell>{{ solicitacao.id_solicitacao }}</clr-dg-cell>
@@ -19,10 +19,7 @@
     <clr-dg-cell>{{ solicitacao.agencia }}</clr-dg-cell>
     <clr-dg-cell>{{ solicitacao.conta }}</clr-dg-cell>
     <clr-dg-cell>{{ solicitacao.valor}}</clr-dg-cell>
-    <clr-dg-cell>{{ solicitacao.data_solicitacao }}</clr-dg-cell>
-    <clr-dg-action-overflow>
-      <button class="action-item" (click)="openModal(solicitacao)">Confirmar Pagamento</button>
-    </clr-dg-action-overflow>
+    <clr-dg-cell>{{ solicitacao.data_pagamento}}</clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer>
@@ -34,13 +31,3 @@
   </clr-dg-footer>
 </clr-datagrid>
 
-<clr-modal [(clrModalOpen)]="confirmar">
-  <h3 class="modal-title">Confirmar PAGAMENTO</h3>
-  <div class="modal-body">
-    <p>Tem certeza que deseja confirmar o PAGAMENTO?</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="confirmar = false">Não</button>
-    <button type="button" class="btn btn-primary" (click)="confirmarPagamento()">Sim</button>
-  </div>
-</clr-modal>

@@ -16,6 +16,7 @@ import { HomeComponent } from './home.component';
 import { DetalheQuestionarioComponent } from '../questionario/detalhe-questionario/detalhe-questionario.component';
 import { OpcaoComponent } from '../opcao/opcao.component';
 import { ListarSolicitacaoPagamentoComponent } from '../usuario-master/listar-solicitacao-pagamento/listar-solicitacao-pagamento.component';
+import { ListarSolicitacaoPagasComponent } from '../usuario-master/listar-solicitacao-pagas/listar-solicitacao-pagas.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
       { path: 'empresa', component: EmpresaComponent },
       { path: 'opcao', component: OpcaoComponent },
       { path: 'questionario-detalhe', component: DetalheQuestionarioComponent },
-      { path: 'listar-solicitacao-pagamento', component: ListarSolicitacaoPagamentoComponent }
+      { path: 'listar-solicitacao-pagamento', component: ListarSolicitacaoPagamentoComponent },
+      { path: 'listar-solicitacao-pagas', component: ListarSolicitacaoPagasComponent}
     ]
   }
 ];

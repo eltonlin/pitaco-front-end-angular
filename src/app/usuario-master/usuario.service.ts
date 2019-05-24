@@ -20,6 +20,10 @@ export class UsuarioService {
     return this.http.get(this.url + 'solicita_pagamento/listar');
   }
 
+  listarSolicitacoesPAGAS(): Observable<any> {
+    return this.http.get(this.url + 'solicita_pagamento/pago');
+  }
+
   cadastrarUsuario(usuarioMaster: UsuarioMaster): Observable<any> {
     return this.http.post(this.url + 'usuario_master', usuarioMaster);
   }
