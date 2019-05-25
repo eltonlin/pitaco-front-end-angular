@@ -51,7 +51,7 @@
     <form clrForm>
       <clr-input-container>
         <label>Descrição:</label>
-        <input clrInput type="text" [(ngModel)]="questionario.descricao_questionario" name="descricao_questionario"
+        <input clrInput type="text" [(ngModel)]="questionario.descricao_questionario" name="descricao_questionario" size=80%
           required />
         <clr-control-error>A descrição deve ser inserido!</clr-control-error>
       </clr-input-container>
@@ -61,12 +61,12 @@
           required />
         <clr-control-error>A pontuação deve ser inserido!</clr-control-error>
       </clr-input-container>
-      <clr-input-container>
-        <label>Interesse:</label>
-        <input clrInput type="text" [(ngModel)]="questionario.interesse_descricao" name="interesse_descricao"
-          required />
-        <clr-control-error>O interesse deve ser inserido!</clr-control-error>
-      </clr-input-container>
+      <clr-select-container>
+        <label>Interesse</label>
+        <select clrSelect name="optionsInteresse" [ngModel]="questionario.id_interesse" (ngModelChange)="onChange($event)">
+          <option *ngFor="let interesse of interesses" [value]="interesse.id_interesse">{{ interesse.descricao }}</option>
+        </select>
+      </clr-select-container>
     </form>
   </div>
   <div class="modal-footer">
@@ -74,3 +74,23 @@
     <button type="button" class="btn btn-primary" (click)="atualizar(questionario)">Salvar</button>
   </div>
 </clr-modal>
+<div *ngIf="sucesso" class="alert alert-success" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }}</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="erro" class="alert alert-danger" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }} </span>
+    </div>
+  </div>
+</div>

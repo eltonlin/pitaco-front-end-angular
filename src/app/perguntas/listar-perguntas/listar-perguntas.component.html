@@ -10,7 +10,8 @@
   <clr-dg-row *clrDgItems="let pergunta of perguntas">
     <clr-dg-cell>{{ pergunta.id_pergunta }}</clr-dg-cell>
     <clr-dg-cell>{{ pergunta.descricao_pergunta }}</clr-dg-cell>
-    <clr-dg-cell>{{ pergunta.tipo_pergunta }}</clr-dg-cell>
+    <clr-dg-cell *ngIf="pergunta.tipo_pergunta == 'C'">Caixa de Seleção</clr-dg-cell>
+    <clr-dg-cell *ngIf="pergunta.tipo_pergunta == 'M'">Múltipla Escolha</clr-dg-cell>
     <clr-dg-cell>{{ pergunta.id_questionario }}</clr-dg-cell>
     <clr-dg-action-overflow>
       <button class="action-item" (click)="editar(pergunta)">Editar</button>
@@ -48,11 +49,13 @@
         <input clrInput type="text" [(ngModel)]="pergunta.descricao_pergunta" name="descricao_pergunta" required />
         <clr-control-error>A descrição da pergunta deve ser inserido!</clr-control-error>
       </clr-input-container>
-      <clr-input-container>
-        <label>Tipo:</label>
-        <input clrInput type="text" [(ngModel)]="pergunta.tipo_pergunta" name="tipo_pergunta" required />
-        <clr-control-error>O tipo de pergunta deve ser inserido!</clr-control-error>
-      </clr-input-container>
+      <clr-select-container>
+        <label>Tipo de pergunta</label>
+        <select clrSelect name="optionsTipoPergunta" [(ngModel)]="pergunta.tipo_pergunta">
+          <option value="M">Múltipla Escolha</option>
+          <option value="C">Caixa de Seleção</option>
+        </select>
+      </clr-select-container>
     </form>
   </div>
   <div class="modal-footer">
@@ -60,3 +63,23 @@
     <button type="button" class="btn btn-primary" (click)="atualizar(pergunta)">Salvar</button>
   </div>
 </clr-modal>
+<div *ngIf="sucesso" class="alert alert-success" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }}</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="erro" class="alert alert-danger" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }} </span>
+    </div>
+  </div>
+</div>

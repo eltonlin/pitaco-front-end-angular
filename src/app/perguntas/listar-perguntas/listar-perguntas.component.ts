@@ -23,7 +23,7 @@ export class ListarPerguntasComponent implements OnInit {
     tipo_pergunta: String,
     id_questionario: Number
   };
-  errorMessage = String;
+  message = String;
   sucesso = false;
   erro = false;
   delete = false;
@@ -44,13 +44,20 @@ export class ListarPerguntasComponent implements OnInit {
     this.perguntasService.atualizar(res).subscribe(
       result => {
         this.sucesso = true;
+        this.message = result.message;
+        this.perguntas.filter(pergunta => {
+          if (pergunta.id_pergunta === res.id_pergunta) {
+            pergunta.descricao_pergunta = res.descricao_pergunta;
+            pergunta.tipo_pergunta = res.tipo_pergunta;
+          }
+        });
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
 
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -72,7 +79,7 @@ export class ListarPerguntasComponent implements OnInit {
 
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -83,17 +90,24 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   apagar(res) {
-    this.pergunta = res;
+    this.setPergunta(res);
     this.delete = true;
   }
 
   editar(res) {
-    this.pergunta = res;
+    this.setPergunta(res);
     this.update = true;
   }
 
   opcoes(pergunta) {
     this.router.navigate(['/home/opcao', { id: pergunta.id_pergunta }]);
+  }
+
+  setPergunta(pergunta) {
+    this.pergunta.id_pergunta = pergunta.id_pergunta;
+    this.pergunta.descricao_pergunta = pergunta.descricao_pergunta;
+    this.pergunta.id_questionario = pergunta.id_questionario;
+    this.pergunta.tipo_pergunta = pergunta.tipo_pergunta;
   }
 
 }
