@@ -54,3 +54,23 @@
     <button type="button" class="btn btn-primary" (click)="atualizar(opcao)">Salvar</button>
   </div>
 </clr-modal>
+<div *ngIf="sucesso" class="alert alert-success" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }}</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="erro" class="alert alert-danger" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">{{ message }} </span>
+    </div>
+  </div>
+</div>

@@ -12,8 +12,8 @@ export class InteresseService {
 
   constructor(public http: HttpClient) { }
 
-  listarInteresses(): Observable<Interesses> {
-    return this.http.get<Interesses>(this.url + 'interesses');
+  listarInteresses(): Observable<Interesses[]> {
+    return this.http.get<Interesses[]>(this.url + 'interesses');
   }
 
 }

@@ -45,7 +45,7 @@ export class QuestionarioComponent implements OnInit {
 
   empresas: Empresas;
 
-  interesses: Interesses;
+  interesses: Interesses[];
 
   sucesso;
 

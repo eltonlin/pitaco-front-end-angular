@@ -23,15 +23,15 @@ export class ListarQuestionariosComponent implements OnInit {
     pontuacao_questionario: Number,
     login_master: String,
     razao_social: String,
-    id_interesse: String,
+    id_interesse: Number,
     interesse_descricao: ''
   };
-  errorMessage = String;
+  message = String;
   sucesso = false;
   erro = false;
   delete = false;
   update = false;
-  interesses: Interesses;
+  interesses: Interesses[];
 
   questionarios;
 
@@ -53,7 +53,7 @@ export class ListarQuestionariosComponent implements OnInit {
 
   atualizar(res) {
     this.questionarioService.editarQuestionario(res).subscribe(
-      () => {
+      result => {
         this.sucesso = true;
         this.questionarios.filter(questionario => {
           if (res.id_questionario === questionario.id_questionario ) {
@@ -63,13 +63,16 @@ export class ListarQuestionariosComponent implements OnInit {
             questionario.descricao_interesse = res.descricao_interesse;
           }
         });
+
+        this.message = result.message;
+
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
 
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -88,10 +91,10 @@ export class ListarQuestionariosComponent implements OnInit {
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
-
+        this.message = result.message;
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -114,19 +117,20 @@ export class ListarQuestionariosComponent implements OnInit {
   }
 
   setQuestionario(questionario) {
+    this.questionario.id_questionario = questionario.id_questionario;
     this.questionario.descricao_questionario = questionario.descricao_questionario;
     this.questionario.pontuacao_questionario = questionario.pontuacao_questionario;
     this.questionario.interesse_descricao = questionario.interesse_descricao;
+    this.questionario.id_interesse = questionario.id_interesse;
   }
 
   onChange(idInteresse) {
     this.questionario.id_interesse = idInteresse;
-    this.interesses.filter(interesse => {
-      if (interesse.id_interesse === idInteresse) {
-          this.questionario.interesse_descricao = interesse.descricao;
+    for (const interesse of this.interesses) {
+      console.log(interesse.id_interesse);
+      if (interesse.id_interesse == idInteresse ) {
+        this.questionario.interesse_descricao = interesse.descricao;
       }
-    });
-    console.log(this.questionario);
-
+    }
   }
 }

@@ -23,7 +23,7 @@ export class OpcaoComponent implements OnInit {
     descricao_opcao: String,
     id_pergunta: Number
   }
-  errorMessage = String;
+  message = String;
   sucesso = false;
   erro = false;
   delete = false;
@@ -43,13 +43,19 @@ export class OpcaoComponent implements OnInit {
     this.opcoesService.atualizar(res).subscribe(
       result => {
         this.sucesso = true;
+        this.message = result.message;
+        this.opcoes.filter(opcao => {
+          if (opcao.id_opcao === res.id_opcao) {
+            opcao.descricao_opcao = res.descricao_opcao;
+          }
+        });
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
 
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -71,7 +77,7 @@ export class OpcaoComponent implements OnInit {
 
       },
       error => {
-        this.errorMessage = error.error.message;
+        this.message = error.error.message;
         this.erro = true;
         setTimeout(() => {
           this.erro = false;
@@ -82,13 +88,19 @@ export class OpcaoComponent implements OnInit {
   }
 
   apagar(res) {
-    this.opcao = res;
+    this.setOpcao(res);
     this.delete = true;
   }
 
   editar(res) {
-    this.opcao = res;
+    this.setOpcao(res);
     this.update = true;
+  }
+
+  setOpcao(opcao) {
+    this.opcao.id_opcao = opcao.id_opcao;
+    this.opcao.descricao_opcao = opcao.descricao_opcao;
+    this.opcao.id_pergunta = opcao.id_peergunta;
   }
 
 }
