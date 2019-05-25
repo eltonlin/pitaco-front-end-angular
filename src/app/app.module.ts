@@ -24,6 +24,7 @@ import { ListarUsuariosMasterComponent } from './usuario-master/listar-usuarios-
 import { EmpresaService } from './empresa/empresa.service';
 import { HomeModule } from './home/home.module';
 import { OpcaoComponent } from './opcao/opcao.component';
+import { AuthGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { OpcaoComponent } from './opcao/opcao.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [LoginService, EmpresaService],
+  providers: [LoginService, EmpresaService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

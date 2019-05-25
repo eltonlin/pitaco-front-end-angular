@@ -15,10 +15,7 @@
                     <clr-icon shape="caret down" size="15"></clr-icon>
                 </button>
                 <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                    <!-- <a href="..." clrDropdownItem>Perfil</a>
-                    <a href="..." clrDropdownItem>Editar Perfil</a>
-                    <a href="..." clrDropdownItem>Configurações</a> -->
-                    <a [routerLink]="['/login']" clrDropdownItem>Sair</a>
+                    <a (click)="loggout()" clrDropdownItem>Sair</a>
                 </clr-dropdown-menu>
             </clr-dropdown>
         </div>
