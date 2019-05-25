@@ -8,16 +8,16 @@
   <span class="clr-subtext">Login do usuário pode ter no máximo 30 caracteres.</span>
   <clr-password-container>
     <label>Senha do Usuário</label>
-    <input clrPassword type="password" maxlength="10" [(ngModel)]="usuarioMaster.senha" name="usuarioMasterSenha" required />
+    <input clrPassword type="password" maxlength="30" [(ngModel)]="usuarioMaster.senha" name="usuarioMasterSenha" required />
     <clr-control-error>A senha Usuário Master deve ser inserida!</clr-control-error>
   </clr-password-container>
-  <span class="clr-subtext">A senha do usuário pode ter no máximo 10 caracteres.</span>
+  <span class="clr-subtext">A senha do usuário pode ter no máximo 30 caracteres.</span>
   <clr-input-container>
     <label>Nome do Usuário</label>
-    <input clrInput type="text" maxlength="50" [(ngModel)]="usuarioMaster.nome" name="usuarioMasterNome" required />
+    <input clrInput type="text" maxlength="100" [(ngModel)]="usuarioMaster.nome" name="usuarioMasterNome" required />
     <clr-control-error>O Nome Usuário Master deve ser inserido!</clr-control-error>
   </clr-input-container>
-  <span class="clr-subtext">O nome do usuário pode ter no máximo 50 caracteres.</span>
+  <span class="clr-subtext">O nome do usuário pode ter no máximo 100 caracteres.</span>
   <br />
   <button class="btn btn-info-outline" (click)="cadastrar()">Cadastrar</button>
   <div *ngIf="sucesso" class="alert alert-success" role="alert">

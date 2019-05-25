@@ -11,13 +11,14 @@
         <form clrForm clrLayout="vertical">
           <clr-input-container>
             <label>Descrição do Questionário</label>
-            <input clrInput type="text" size=100% name="descricao1" minlength="2" maxlength="500" [(ngModel)]="questionario.descricao_questionario" />
+            <input clrInput type="text" size=100% name="descricao1" minlength="2" maxlength="100"
+              [(ngModel)]="questionario.descricao_questionario" />
             <clr-control-error>A descrição do questionário deve ser inserida!</clr-control-error>
           </clr-input-container>
           <clr-input-container>
             <label>Pontuação do Questionario</label>
-            <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario" name="pontuacaoQuestionario"
-              required />
+            <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario"
+              name="pontuacaoQuestionario" required />
             <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
           </clr-input-container>
           <clr-select-container>
@@ -29,7 +30,8 @@
           <clr-select-container>
             <label>Interesse</label>
             <select clrSelect name="optionsInteresse" [(ngModel)]="questionario.id_interesse">
-              <option *ngFor="let interesse of interesses" [value]="interesse.id_interesse">{{ interesse.descricao }}</option>
+              <option *ngFor="let interesse of interesses" [value]="interesse.id_interesse">{{ interesse.descricao }}
+              </option>
             </select>
           </clr-select-container>
         </form>
@@ -51,8 +53,8 @@
               <form clrForm clrLayout="vertical">
                 <clr-input-container>
                   <label>Descrição</label>
-                  <input clrInput type="text" size=100% [(ngModel)]="pergunta.descricao_pergunta" minlength="2" maxlength="500" name="descricaoPergunta"
-                    required />
+                  <input clrInput type="text" size=100% [(ngModel)]="pergunta.descricao_pergunta" minlength="2"
+                    maxlength="500" name="descricaoPergunta" required />
                   <clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error>
                 </clr-input-container>
                 <clr-select-container>
@@ -74,9 +76,9 @@
                         <form clrForm clrLayout="vertical">
                           <clr-input-container>
                             <label>Descrição</label>
-                            <input clrInput type="text" size=100% [(ngModel)]="opcao.descricao_opcao" minlength="2" maxlength="500" name="descricaoOpcao"
-                              required />
-                            <clr-control-error>A descrição da opção deve ser inserida</clr-control-error>
+                            <input clrInput type="text" size=100% [(ngModel)]="opcao.descricao_opcao" minlength="2"
+                              maxlength="100" name="descricaoOpcao" required />
+                            <clr-control-error>A descrição da opção deve ser inserida!</clr-control-error>
                           </clr-input-container>
                         </form>
                       </div>

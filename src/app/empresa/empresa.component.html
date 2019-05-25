@@ -4,16 +4,16 @@
 <form clrForm clrLayout="vertical">
   <clr-input-container>
     <label>Razão Social</label>
-    <input clrInput type="text" maxlength="50" [(ngModel)]="empresa.razao_social" name="razao_social" required />
+    <input clrInput type="text" maxlength="100" [(ngModel)]="empresa.razao_social" name="razao_social" required />
     <clr-control-error>O nome deve ser inserido!</clr-control-error>
   </clr-input-container>
-  <span class="clr-subtext">A razão social deve ter no máximo 50 caracteres.</span>
+  <span class="clr-subtext">A razão social deve ter no máximo 100 caracteres.</span>
   <clr-input-container>
     <label>Nome Fantasia</label>
-    <input clrInput type="text" maxlength="50" [(ngModel)]="empresa.nome_fantasia" name="nome_fantasia" required />
+    <input clrInput type="text" maxlength="100" [(ngModel)]="empresa.nome_fantasia" name="nome_fantasia" required />
     <clr-control-error>O nome deve ser inserido!</clr-control-error>
   </clr-input-container>
-  <span class="clr-subtext">O Nome Fantasia deve ter no máximo 50 caracteres.</span>
+  <span class="clr-subtext">O Nome Fantasia deve ter no máximo 100 caracteres.</span>
   <clr-input-container>
     <label>CNPJ da Empresa</label>
     <input clrInput type="text" data-mask="00.000.000/0000-00" autocomplete="off" class="form-control" maxlength="14" [(ngModel)]="empresa.cnpj" name="cnpjEmpresa" required />

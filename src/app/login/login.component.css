@@ -1,0 +1,10 @@
+.login-wrapper {
+    background-image: url(/assets/background-image/Pitaco-Logo-Final.png);
+    /* background-image: url(/assets/background-image/eltin.png); */
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: right center;
+  }
+  /* .login-wrapper .login {
+    min-height: 70vh;
+  } */
