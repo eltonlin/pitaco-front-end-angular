@@ -39,7 +39,9 @@ export class EmpresaComponent implements OnInit {
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
-
+        this.empresa.cnpj = null;
+        this.empresa.nome_fantasia = null;
+        this.empresa.razao_social = null;
       },
       error => {
         this.errorMessage = error.error.message;

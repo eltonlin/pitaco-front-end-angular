@@ -67,6 +67,24 @@ export class QuestionarioComponent implements OnInit {
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
+        this.questionario = {
+          descricao_questionario: '',
+          empresa_cnpj: '',
+          pontuacao_questionario: '',
+          login_master: localStorage.getItem('login_master'),
+          id_interesse: '',
+          perguntas: [
+            {
+              descricao_pergunta: '',
+              tipo_pergunta: '',
+              opcoes: [
+                {
+                  descricao_opcao: ''
+                }
+              ]
+            }
+          ]
+        };
       },
       error => {
         this.erro = true;

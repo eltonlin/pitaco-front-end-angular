@@ -26,24 +26,25 @@ export class UsuarioMasterComponent implements OnInit {
   }
 
   cadastrar() {
-    this.usuarioService.cadastrarUsuario(this.usuarioMaster)
-      .subscribe(
-        result => {
-          this.sucesso = true;
-          setTimeout(() => {
-            this.sucesso = false;
-          }, 3000);
-
-        },
-        error => {
-          this.errorMessage = error.error.message;
-          this.erro = true;
-          setTimeout(() => {
-            this.erro = false;
-          }, 3000);
-
-        }
-      );
+    var userMater = JSON.parse(JSON.stringify(this.usuarioMaster));;
+    this.usuarioMaster.nome = null;
+    this.usuarioMaster.senha = null;
+    this.usuarioMaster.login_master = null;
+    this.usuarioService.cadastrarUsuario(userMater).subscribe(
+      result => {
+        this.sucesso = true;
+        setTimeout(() => {
+          this.sucesso = false;
+        }, 3000);
+      },
+      error => {
+        this.errorMessage = error.error.message;
+        this.erro = true;
+        setTimeout(() => {
+          this.erro = false;
+        }, 3000);
+      }
+    );
   }
 
 }

@@ -13,13 +13,13 @@
             <label>Descrição do Questionário</label>
             <input clrInput type="text" size=100% name="descricao1" minlength="2" maxlength="100"
               [(ngModel)]="questionario.descricao_questionario" />
-            <clr-control-error>A descrição do questionário deve ser inserida!</clr-control-error>
+            <!--clr-control-error>A descrição do questionário deve ser inserida!</clr-control-error-->
           </clr-input-container>
           <clr-input-container>
             <label>Pontuação do Questionario</label>
             <input clrInput type="number" min="1" max="999" [(ngModel)]="questionario.pontuacao_questionario"
-              name="pontuacaoQuestionario" required />
-            <clr-control-error>A Pontuação deve ser inserida!</clr-control-error>
+              name="pontuacaoQuestionario" />
+            <!--clr-control-error>A Pontuação deve ser inserida!</clr-control-error-->
           </clr-input-container>
           <clr-select-container>
             <label>Empresa</label>
@@ -54,8 +54,8 @@
                 <clr-input-container>
                   <label>Descrição</label>
                   <input clrInput type="text" size=100% [(ngModel)]="pergunta.descricao_pergunta" minlength="2"
-                    maxlength="500" name="descricaoPergunta" required />
-                  <clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error>
+                    maxlength="500" name="descricaoPergunta" />
+                  <!--clr-control-error>A descrição da pergunta deve ser inserida!</clr-control-error-->
                 </clr-input-container>
                 <clr-select-container>
                   <label>Tipo de pergunta</label>
@@ -77,8 +77,8 @@
                           <clr-input-container>
                             <label>Descrição</label>
                             <input clrInput type="text" size=100% [(ngModel)]="opcao.descricao_opcao" minlength="2"
-                              maxlength="100" name="descricaoOpcao" required />
-                            <clr-control-error>A descrição da opção deve ser inserida!</clr-control-error>
+                              maxlength="100" name="descricaoOpcao" />
+                            <!--clr-control-error>A descrição da opção deve ser inserida!</clr-control-error-->
                           </clr-input-container>
                         </form>
                       </div>

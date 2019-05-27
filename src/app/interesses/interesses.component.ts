@@ -42,7 +42,7 @@ export class InteressesComponent implements OnInit {
         setTimeout(() => {
           this.sucesso = false;
         }, 3000);
-
+        this.interesse.descricao = null;
       },
       error => {
         this.errorMessage = error.error.message;
