@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.usuarioMaster = user;
         window.localStorage.setItem('user', this.usuarioMaster.nome);
         window.localStorage.setItem('login_master', this.usuarioMaster.login_master);
-        this.router.navigate(['home']);
+        this.router.navigate(['home/apresentacao']);
       },
       error => {
         this.error = error.error.message;
