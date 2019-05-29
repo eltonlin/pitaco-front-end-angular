@@ -25,11 +25,10 @@ export class ListarEmpresasComponent implements OnInit {
   }
 
   listarEmpresas() {
-    this.empresaService.listarEmpresas().subscribe(empresas => { this.empresas = empresas; console.log(this.empresas); });
+    this.empresaService.listarEmpresas().subscribe(empresas => this.empresas = empresas);
   }
 
   atualizarEmpresa(res) {
-    console.log(res);
     this.empresaService.atualizar(res).subscribe(
       () => {
         this.sucesso = true;
@@ -57,7 +56,6 @@ export class ListarEmpresasComponent implements OnInit {
   }
 
   deletar(res) {
-    console.log(res);
     this.empresaService.deletar(res).subscribe(
       () => {
         this.sucesso = true;

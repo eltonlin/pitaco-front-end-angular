@@ -35,7 +35,6 @@ export class InteressesComponent implements OnInit {
 
 
   insertInteresse() {
-    console.log(this.interesse);
     this.interessesService.inserir(this.interesse).subscribe(
       result => {
         this.sucesso = true;

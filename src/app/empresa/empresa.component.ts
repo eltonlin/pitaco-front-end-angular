@@ -32,7 +32,6 @@ export class EmpresaComponent implements OnInit {
   }
 
   insertEmpresa() {
-    console.log(this.empresa);
     this.empresasService.inserir(this.empresa).subscribe(
       result => {
         this.sucesso = true;

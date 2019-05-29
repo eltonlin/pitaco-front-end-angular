@@ -50,8 +50,11 @@ export class DetalheQuestionarioComponent implements OnInit {
 
   onChange(estado) {
     this.params.estado = estado;
+    this.cidades = [];
     this.questionarioService.retornaCidades(this.params.estado)
-    .subscribe(cidades => this.cidades = cidades);
+    .subscribe(cidades => {
+      this.cidades = cidades;
+    });
 
   }
 

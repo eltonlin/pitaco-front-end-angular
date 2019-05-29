@@ -39,7 +39,6 @@ export class OpcaoComponent implements OnInit {
   }
 
   atualizar(res) {
-    console.log(res);
     this.opcoesService.atualizar(res).subscribe(
       result => {
         this.sucesso = true;
@@ -66,7 +65,6 @@ export class OpcaoComponent implements OnInit {
   }
 
   deletar(res) {
-    console.log(res);
     this.opcoesService.deletarOpcoes(res.id_opcao).subscribe(
       result => {
         this.sucesso = true;

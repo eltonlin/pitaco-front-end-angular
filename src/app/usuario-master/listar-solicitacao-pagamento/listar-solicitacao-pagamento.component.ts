@@ -31,7 +31,6 @@ export class ListarSolicitacaoPagamentoComponent implements OnInit {
   }
 
   confirmarPagamento() {
-    console.log(this.solicitacaoParaConfirmar);
     this.usuarioService.atualizarSolicitacaoParaPaga(this.solicitacaoParaConfirmar)
       .subscribe(
         sucess => {
@@ -40,7 +39,6 @@ export class ListarSolicitacaoPagamentoComponent implements OnInit {
             !== this.solicitacaoParaConfirmar.id_solicitacao);
         },
         error => {
-          console.log(error);
         }
       );
   }

@@ -40,7 +40,6 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   atualizar(res) {
-    console.log(res);
     this.perguntasService.atualizar(res).subscribe(
       result => {
         this.sucesso = true;
@@ -68,7 +67,6 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   deletar(res) {
-    console.log(res);
     this.perguntasService.deletarPerguntas(res.id_pergunta).subscribe(
       result => {
         this.sucesso = true;

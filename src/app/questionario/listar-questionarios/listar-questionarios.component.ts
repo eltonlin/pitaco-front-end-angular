@@ -37,9 +37,8 @@ export class ListarQuestionariosComponent implements OnInit {
 
   ngOnInit() {
     this.interesseService.listarInteresses()
-      .subscribe(interesses => { this.interesses = interesses; console.log(this.interesses); });
-    this.questionarioService.consultarQuestionario().subscribe(questionario => { console.log(questionario) ;
-                                                                                 this.questionarios = questionario; } );
+      .subscribe(interesses => this.interesses = interesses );
+    this.questionarioService.consultarQuestionario().subscribe(questionario =>  this.questionarios = questionario );
   }
 
   detalhar(questionario) {
@@ -107,7 +106,6 @@ export class ListarQuestionariosComponent implements OnInit {
 
   editar(res) {
     this.setQuestionario(res);
-    console.log(this.questionario);
     this.update = true;
   }
 
@@ -127,7 +125,6 @@ export class ListarQuestionariosComponent implements OnInit {
   onChange(idInteresse) {
     this.questionario.id_interesse = idInteresse;
     for (const interesse of this.interesses) {
-      console.log(interesse.id_interesse);
       if (interesse.id_interesse == idInteresse ) {
         this.questionario.interesse_descricao = interesse.descricao;
       }
